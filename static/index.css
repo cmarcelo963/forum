@@ -79,13 +79,14 @@ time, mark, audio, video {
   .categories {
       text-align: left;
       grid-area: categories;
+      padding-top: 2vh;
   }
 
   .announcement {
     grid-area: announcement;
     min-width: 0;
     background-color: #202e39;
-    border-radius: 1.5vh;
+    border-radius: 1vh;
   }
 
 .header {
@@ -115,4 +116,9 @@ time, mark, audio, video {
 
 li {
   list-style-type: none;
+}
+.category-list li{
+  padding: 1vh;
+  background-color: #202e39;
+  border-radius: 1vh;
 }
