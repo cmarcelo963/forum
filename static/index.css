@@ -1,3 +1,11 @@
+body,html {
+  margin: 0;
+  padding: 0;
+}
+* {
+  box-sizing: border-box;
+}
+
 .container {
     display: grid;
     grid-template-columns: auto;
@@ -18,22 +26,27 @@
     background-color: aqua;
     display: flex;
     flex-direction: column;
+    min-width: 20vw;
+    overflow: hidden;
   }
 
   .main{
     grid-area: main;
     text-align: center;
     background-color: blue;
+    min-width: 50vw;
   }
   
   .news {
     grid-area: news;
     background-color: coral;
+    min-width: 30vw;
   }
 
   .stat {
     grid-area: stat;
     background-color: darkgoldenrod;
+    min-width: 0;
   }
 
   .categories {
@@ -41,26 +54,30 @@
   }
 
   .announce {
-      grid-area: announce;
+    grid-area: announce;
+    min-width: 0;
   }
 
 .header {
-    grid-area: header;
-    display: grid;
-    grid-template-columns: auto;
-    grid-template-areas: 
+  grid-area: header;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-areas: 
     "logo logo search search search search search user user user";
+  min-width: 0;
 }
 
- 
 .logo {
-  grid-area: logo
+  grid-area: logo;
+  min-width: 20vw;
 }
 
 .search-bar {
   grid-area: search;
+  min-width: 50vw;
 }
 
 .user-status {
   grid-area: user;
+  min-width: 30vw;
 }
