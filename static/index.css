@@ -12,19 +12,25 @@
 
   .navigation {
     grid-area: nav;
+    background-color: aqua;
+    display: flex;
+    flex-direction: column;
   }
 
   .main{
     grid-area: main;
     text-align: center;
+    background-color: blue;
   }
   
   .news {
     grid-area: news;
+    background-color: coral;
   }
 
   .stat {
     grid-area: stat;
+    background-color: darkgoldenrod;
   }
 
   .categories {
@@ -37,8 +43,21 @@
 
 .header {
     grid-area: header;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-areas: 
+    "logo logo search search search search search user user user";
 }
 
-.header-container {
-    display: flex;
+ 
+.logo {
+  grid-area: logo
+}
+
+.search-bar {
+  grid-area: search;
+}
+
+.user-status {
+  grid-area: user;
 }
