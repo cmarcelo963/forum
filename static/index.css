@@ -34,7 +34,7 @@ time, mark, audio, video {
     height: 100vh;
     background-color: #152028;
     color: white;
-    font-family: monospace;
+    font-family: Arial, Helvetica, sans-serif;
     overflow: hidden;
 }
 
