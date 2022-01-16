@@ -105,6 +105,11 @@ time, mark, audio, video {
   min-width: 50vw;
 }
 
+.search-bar input {
+  background-color: #202e39;
+  border: none;
+}
+
 .user-status {
   grid-area: user;
   min-width: 30vw;
