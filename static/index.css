@@ -103,6 +103,14 @@ time, mark, audio, video {
 .search-bar {
   grid-area: search;
   min-width: 50vw;
+  padding: 0 1vh;
+}
+
+.search-container {
+  background-color: #202e39;
+  border-radius: 1vh;
+  padding: 1vh;
+  width: fit-content;
 }
 
 .search-bar input {
