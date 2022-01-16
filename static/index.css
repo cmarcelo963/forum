@@ -35,6 +35,7 @@ time, mark, audio, video {
     background-color: #152028;
     color: white;
     font-family: monospace;
+    overflow: hidden;
 }
 
 .navigation, .main, .news, .stat {
