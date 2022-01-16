@@ -8,6 +8,9 @@
         "nav nav main main main main main news news news"
         "nav nav stat stat stat stat stat stat stat stat";
     height: 100vh;
+    background-color: #152028;
+    color: white;
+    font-family: monospace;
 }
 
   .navigation {
