@@ -53,9 +53,10 @@ body,html {
       text-align: left;
   }
 
-  .announce {
+  .announcement {
     grid-area: announce;
     min-width: 0;
+    background-color: #202e39;
   }
 
 .header {
