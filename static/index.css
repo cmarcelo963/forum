@@ -119,6 +119,7 @@ li {
 }
 .category-list li{
   padding: 1vh;
+  margin: 0.5vh 0;
   background-color: #202e39;
   border-radius: 1vh;
 }
