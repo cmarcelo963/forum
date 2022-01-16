@@ -9,7 +9,7 @@ body,html {
 .container {
     display: grid;
     grid-template-columns: auto;
-    grid-template-rows: 1fr 5fr 5fr 5fr;
+    grid-template-rows: 1fr 10fr 10fr 5fr;
     grid-template-areas: 
         "header header header header header header header header header header"
         "nav nav main main main main main news news news"
