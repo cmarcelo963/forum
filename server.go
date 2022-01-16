@@ -3,5 +3,6 @@ package forum
 import "net/http"
 
 func Server() {
-	http.ListenAndServe("8080", nil)	
+	http.HandleFunc("/", HandleDefault)
+	http.ListenAndServe(":8080", nil)	
 }
