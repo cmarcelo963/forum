@@ -1,14 +1,14 @@
 .container {
     display: grid;
     grid-template-columns: auto;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 5fr 5fr 5fr;
     grid-template-areas: 
+        "header header header header header header header header header header"
         "nav nav main main main main main news news news"
         "nav nav main main main main main news news news"
         "nav nav stat stat stat stat stat stat stat stat";
     height: 100vh;
 }
-
 
   .navigation {
     grid-area: nav;
@@ -30,3 +30,15 @@
   .categories {
       text-align: left;
   }
+
+  .announce {
+      grid-area: announce;
+  }
+
+.header {
+    grid-area: header;
+}
+
+.header-container {
+    display: flex;
+}
