@@ -60,6 +60,7 @@ body,html {
     grid-area: announce;
     min-width: 0;
     background-color: #202e39;
+    border-radius: 1vh;
   }
 
 .header {
