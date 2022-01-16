@@ -85,7 +85,7 @@ time, mark, audio, video {
     grid-area: announcement;
     min-width: 0;
     background-color: #202e39;
-    border-radius: 1vh;
+    border-radius: 1.5vh;
   }
 
 .header {
