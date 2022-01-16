@@ -1,0 +1,32 @@
+.container {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas: 
+        "nav nav main main main main main news news news"
+        "nav nav main main main main main news news news"
+        "nav nav stat stat stat stat stat stat stat stat";
+    height: 100vh;
+}
+
+
+  .navigation {
+    grid-area: nav;
+  }
+
+  .main{
+    grid-area: main;
+    text-align: center;
+  }
+  
+  .news {
+    grid-area: news;
+  }
+
+  .stat {
+    grid-area: stat;
+  }
+
+  .categories {
+      text-align: left;
+  }

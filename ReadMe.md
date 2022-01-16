@@ -4,6 +4,10 @@ Steps:
 1. Create Server
     a. Homepage Template 
         i. Find UI Design
+            aa. Logo Top-Left
+            bb. Search Bar Middle Top
+            cc. Timer Session - User Login Top-Right
+            dd. 
 
 2. Authentication
     a. Front-end
