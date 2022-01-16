@@ -38,6 +38,13 @@ body,html {
     text-align: center;
     background-color: blue;
     min-width: 50vw;
+    display: grid;
+    grid-template-areas: 
+      "announcement"
+      "categories"
+      "categories"
+      "categories";
+    grid-template-rows: 1fr 3fr;
   }
   
   .news {
@@ -54,10 +61,11 @@ body,html {
 
   .categories {
       text-align: left;
+      grid-area: categories;
   }
 
   .announcement {
-    grid-area: announce;
+    grid-area: announcement;
     min-width: 0;
     background-color: #202e39;
     border-radius: 1vh;
