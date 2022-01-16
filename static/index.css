@@ -43,7 +43,6 @@ time, mark, audio, video {
 }
   .navigation {
     grid-area: nav;
-    background-color: aqua;
     display: flex;
     flex-direction: column;
     min-width: 20vw;
@@ -53,7 +52,6 @@ time, mark, audio, video {
   .main{
     grid-area: main;
     text-align: center;
-    background-color: blue;
     min-width: 50vw;
     display: grid;
     grid-template-areas: 
@@ -66,13 +64,11 @@ time, mark, audio, video {
   
   .news {
     grid-area: news;
-    background-color: coral;
     min-width: 30vw;
   }
 
   .stat {
     grid-area: stat;
-    background-color: darkgoldenrod;
     min-width: 0;
   }
 
