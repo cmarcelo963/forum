@@ -112,3 +112,7 @@ time, mark, audio, video {
   grid-area: user;
   min-width: 30vw;
 }
+
+li {
+  list-style-type: none;
+}
