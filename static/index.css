@@ -92,7 +92,7 @@ time, mark, audio, video {
   grid-template-areas: 
     "logo logo search search search search search user user user";
   min-width: 0;
-  padding: 1%;
+  padding: 1% 0;
 }
 
 .logo {
@@ -103,7 +103,7 @@ time, mark, audio, video {
 .search-bar {
   grid-area: search;
   min-width: 50vw;
-  padding: 0 1vh;
+  padding: 0 2vw;
 }
 
 .search-container {
