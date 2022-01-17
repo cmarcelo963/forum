@@ -142,3 +142,7 @@ li {
   background-color: #202e39;
   border-radius: 1vh;
 }
+
+::placeholder {
+  color: #7f8c96;
+}
