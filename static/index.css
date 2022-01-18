@@ -1,6 +1,9 @@
 * {
   box-sizing: border-box;
 }
+:root {
+  --header-height: 6vh;
+}
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -50,7 +53,7 @@ li {
 }
 .logo {
   grid-area: logo;
-  height: 6vh;
+  height: var(--header-height);
   padding: 2vh;
 }
 .nav1 {
@@ -76,7 +79,7 @@ li {
   grid-area: search;
   min-width: 50vw;
   padding: 0 2vw;
-  height: 6vh;
+  height: var(--header-height);
 }
 .search-container {
   background-color: #202e39;
@@ -142,11 +145,6 @@ li {
   background-color: #202e39;
   border-radius: 1vh;
 }
-.user-status {
-  grid-area: user;
-  height: 6vh;
-  padding: 2vh;
-}
 .title-announcement {
   grid-area: t;
 }
@@ -156,6 +154,11 @@ li {
 .news {
   grid-area: news;
   min-width: 30vw;
+}
+.user-status {
+  grid-area: user;
+  height: var(--header-height);
+  padding: 2vh;
 }
 .stat {
   grid-area: stat;
