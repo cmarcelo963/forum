@@ -1,3 +1,6 @@
+* {
+  box-sizing: border-box;
+}
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -18,52 +21,85 @@ time, mark, audio, video {
 	font: inherit;
 	vertical-align: baseline;
 }
-* {
-  box-sizing: border-box;
+li {
+  list-style-type: none;
 }
-
 .container {
-    display: grid;
-    grid-template-columns: auto;
-    grid-template-rows: 4fr 1fr;
-    grid-template-areas: 
-        "nav nav main main main main main news news news"
-        "nav nav stat stat stat stat stat stat stat stat";
-    height: 100vh;
-    background-color: #152028;
-    color: white;
-    font-family: Arial, Helvetica, sans-serif;
-    overflow: hidden;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: 4fr 1fr;
+  grid-template-areas: 
+  "nav nav main main main main main news news news"
+  "nav nav stat stat stat stat stat stat stat stat";
+  height: 100vh;
+  background-color: #152028;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  overflow: hidden;
 }
-
 .navigation, .main, .news, .stat {
   padding: 2vw
 }
-  .navigation {
-    grid-area: nav;
-    display: flex;
-    flex-direction: column;
-    min-width: 20vw;
-    overflow: hidden;
-    border-right: 1px solid #2a3945;
-  }
-
-.navigation section a {
-  padding: 1vh;
+.navigation {
+  grid-area: nav;
+  display: flex;
+  flex-direction: column;
+  min-width: 20vw;
+  overflow: hidden;
+  border-right: 1px solid #2a3945;
 }
-
+.logo {
+  grid-area: logo;
+  height: 6vh;
+  padding: 2vh;
+}
+.nav1 {
+  border-bottom: 1px solid#2a3945;
+  padding-bottom: 2vh;
+}
+.nav2 {
+  padding-top: 2vh;
+}
 .navigation section {
   display: flex;
   flex-direction: column;
 }
-
-  .main{
-    grid-area: main;
-    text-align: center;
-    min-width: 50vw;
-  }
-
-.container2 {
+.navigation section a {
+  padding: 1vh;
+}
+.main{
+  grid-area: main;
+  text-align: center;
+  min-width: 50vw;
+}
+.search-bar {
+  grid-area: search;
+  min-width: 50vw;
+  padding: 0 2vw;
+  height: 6vh;
+}
+.search-container {
+  background-color: #202e39;
+  border-radius: 1vh;
+  padding: 2vh;
+  width: fit-content;
+  display: flex;
+}
+.search-container div {
+  height: 2vh;
+}
+.search-container div img {
+  width: 100%;
+  height: 100%;
+}
+.search-bar input {
+  background-color: #202e39;
+  border: none;
+}
+::placeholder {
+  color: #7f8c96;
+}
+.main-content {
   display: grid;
   grid-template-areas: 
     "announcement"
@@ -73,87 +109,32 @@ time, mark, audio, video {
   grid-template-rows: 3fr 6fr;
   padding-top: 2vh;
 }
-
-  .search-bar {
-    grid-area: search;
-    min-width: 50vw;
-    padding: 0 2vw;
-    height: 6vh;
-  }
-  
-  .news {
-    grid-area: news;
-    min-width: 30vw;
-  }
-
-  .stat {
-    grid-area: stat;
-    min-width: 0;
-  }
-
-  .categories {
-      text-align: left;
-      grid-area: categories;
-      padding-top: 2vh;
-  }
-
-  .announcement {
-    grid-area: announcement;
-    min-width: 0;
-    background-color: #202e39;
-    border-radius: 1vh;
-    padding: 6vh;
-    text-align: left;
-  }
-
-
-.logo {
-  grid-area: logo;
-  height: 6vh;
-  padding: 2vh;
-}
-
-
-
-.search-container {
+.announcement {
+  grid-area: announcement;
+  min-width: 0;
   background-color: #202e39;
   border-radius: 1vh;
-  padding: 2vh;
-  width: fit-content;
-  display: flex;
+  padding: 6vh;
+  text-align: left;
+  word-wrap: break-word;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 2fr 1fr;
+  grid-template-areas: 
+  "t t i"
+  "t t i";
 }
-
-.search-container div {
-  height: 2vh;
-}
-
-.search-container div img {
-  width: 100%;
-  height: 100%;
-}
-
 .announcement div {
   height: 2vh;
 }
-
 .announcement div img {
   width: 100%;
   height: 100%;
 }
-
-.search-bar input {
-  background-color: #202e39;
-  border: none;
-}
-
-.user-status {
-  grid-area: user;
-  height: 6vh;
-  padding: 2vh;
-}
-
-li {
-  list-style-type: none;
+.categories {
+  text-align: left;
+  grid-area: categories;
+  padding-top: 2vh;
 }
 .category-list li{
   padding: 1vh;
@@ -161,33 +142,21 @@ li {
   background-color: #202e39;
   border-radius: 1vh;
 }
-
-::placeholder {
-  color: #7f8c96;
+.user-status {
+  grid-area: user;
+  height: 6vh;
+  padding: 2vh;
 }
-
-.nav1 {
-  border-bottom: 1px solid#2a3945;
-  padding-bottom: 2vh;
-}
-
-.nav2 {
-  padding-top: 2vh;
-}
-
 .title-announcement {
   grid-area: t;
 }
-
 .img-announcement {
   grid-area: i;
 }
-
-.announcement {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  grid-template-rows: 2fr 1fr;
-  grid-template-areas: 
-          "t t i"
-          "t t i";
+.news {
+  grid-area: news;
+  min-width: 30vw;
+}
+.stat {
+  grid-area: stat;
 }
