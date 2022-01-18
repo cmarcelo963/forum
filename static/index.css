@@ -104,6 +104,7 @@ li {
 }
 ::placeholder {
   color: #7f8c96;
+  font-size: 2vh;
 }
 .main-content {
   display: grid;
