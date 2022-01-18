@@ -48,8 +48,13 @@ time, mark, audio, video {
     border-right: 1px solid #2a3945;
   }
 
-.navigation a {
+.navigation section a {
   padding: 1vh;
+}
+
+.navigation section {
+  display: flex;
+  flex-direction: column;
 }
 
   .main{
@@ -66,6 +71,7 @@ time, mark, audio, video {
     "categories"
     "categories";
   grid-template-rows: 3fr 6fr;
+  padding-top: 2vh;
 }
 
   .search-bar {
@@ -96,18 +102,10 @@ time, mark, audio, video {
     min-width: 0;
     background-color: #202e39;
     border-radius: 1vh;
+    padding: 6vh;
+    text-align: left;
   }
 
-.header {
-  grid-area: header;
-  display: grid;
-  grid-template-columns: auto;
-  grid-template-areas: 
-    "logo logo search search search search search user user user";
-  min-width: 0;
-  padding: 1% 0;
-  align-items: center;
-}
 
 .logo {
   grid-area: logo;
@@ -130,6 +128,15 @@ time, mark, audio, video {
 }
 
 .search-container div img {
+  width: 100%;
+  height: 100%;
+}
+
+.announcement div {
+  height: 2vh;
+}
+
+.announcement div img {
   width: 100%;
   height: 100%;
 }
@@ -159,3 +166,28 @@ li {
   color: #7f8c96;
 }
 
+.nav1 {
+  border-bottom: 1px solid#2a3945;
+  padding-bottom: 2vh;
+}
+
+.nav2 {
+  padding-top: 2vh;
+}
+
+.title-announcement {
+  grid-area: t;
+}
+
+.img-announcement {
+  grid-area: i;
+}
+
+.announcement {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 2fr 1fr;
+  grid-template-areas: 
+          "t t i"
+          "t t i";
+}
