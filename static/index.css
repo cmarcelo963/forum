@@ -48,8 +48,13 @@ time, mark, audio, video {
     border-right: 1px solid #2a3945;
   }
 
-.navigation a {
+.navigation section a {
   padding: 1vh;
+}
+
+.navigation section {
+  display: flex;
+  flex-direction: column;
 }
 
   .main{
@@ -98,16 +103,6 @@ time, mark, audio, video {
     border-radius: 1vh;
   }
 
-.header {
-  grid-area: header;
-  display: grid;
-  grid-template-columns: auto;
-  grid-template-areas: 
-    "logo logo search search search search search user user user";
-  min-width: 0;
-  padding: 1% 0;
-  align-items: center;
-}
 
 .logo {
   grid-area: logo;
