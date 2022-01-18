@@ -25,10 +25,8 @@ time, mark, audio, video {
 .container {
     display: grid;
     grid-template-columns: auto;
-    grid-template-rows: 1fr 10fr 10fr 5fr;
+    grid-template-rows: 4fr 1fr;
     grid-template-areas: 
-        "header header header header header header header header header header"
-        "nav nav main main main main main news news news"
         "nav nav main main main main main news news news"
         "nav nav stat stat stat stat stat stat stat stat";
     height: 100vh;
@@ -36,7 +34,6 @@ time, mark, audio, video {
     color: white;
     font-family: Arial, Helvetica, sans-serif;
     overflow: hidden;
-    padding: 1vh 1vw
 }
 
 .navigation, .main, .news, .stat {
@@ -48,19 +45,34 @@ time, mark, audio, video {
     flex-direction: column;
     min-width: 20vw;
     overflow: hidden;
+    border-right: 1px solid #2a3945;
   }
+
+.navigation a {
+  padding: 1vh;
+}
 
   .main{
     grid-area: main;
     text-align: center;
     min-width: 50vw;
-    display: grid;
-    grid-template-areas: 
-      "announcement"
-      "categories"
-      "categories"
-      "categories";
-    grid-template-rows: 1fr 3fr;
+  }
+
+.container2 {
+  display: grid;
+  grid-template-areas: 
+    "announcement"
+    "categories"
+    "categories"
+    "categories";
+  grid-template-rows: 3fr 6fr;
+}
+
+  .search-bar {
+    grid-area: search;
+    min-width: 50vw;
+    padding: 0 2vw;
+    height: 6vh;
   }
   
   .news {
@@ -99,25 +111,22 @@ time, mark, audio, video {
 
 .logo {
   grid-area: logo;
-  min-width: 20vw;
+  height: 6vh;
+  padding: 2vh;
 }
 
-.search-bar {
-  grid-area: search;
-  min-width: 50vw;
-  padding: 0 2vw;
-}
+
 
 .search-container {
   background-color: #202e39;
   border-radius: 1vh;
-  padding: 1vh;
+  padding: 2vh;
   width: fit-content;
   display: flex;
 }
 
 .search-container div {
-  width: 2vw;
+  height: 2vh;
 }
 
 .search-container div img {
@@ -132,7 +141,8 @@ time, mark, audio, video {
 
 .user-status {
   grid-area: user;
-  min-width: 30vw;
+  height: 6vh;
+  padding: 2vh;
 }
 
 li {
@@ -148,3 +158,4 @@ li {
 ::placeholder {
   color: #7f8c96;
 }
+
