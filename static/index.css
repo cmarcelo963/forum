@@ -46,7 +46,7 @@ li {
 }
 .navigation, .main, .news, .stat {
   padding: 2vw;
-  font-size: 2vh;
+  font-size: 1.5vh;
 }
 .navigation {
   grid-area: nav;
@@ -109,7 +109,6 @@ li {
 }
 ::placeholder {
   color: #7f8c96;
-  font-size: 2vh;
 }
 .main-content {
   display: grid;
