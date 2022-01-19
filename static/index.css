@@ -75,6 +75,7 @@ li {
 .navigation section a {
   padding: 1vh;
   text-decoration: none;
+  color: #7b8892;
 }
 .main{
   grid-area: main;
