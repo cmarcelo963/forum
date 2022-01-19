@@ -86,7 +86,7 @@ section a div img {
   height: 100%;
   padding-right: 1vw;
 }
-.main{
+.main {
   grid-area: main;
   text-align: center;
   min-width: 50vw;
@@ -139,7 +139,7 @@ section a div img {
   text-align: left;
   word-wrap: break-word;
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 3fr 1fr;
   grid-template-rows: 2fr 1fr;
   grid-template-areas: 
   "t t i"
@@ -147,7 +147,11 @@ section a div img {
   overflow-wrap: anywhere;
 }
 .announcement div {
-  height: 2vh;
+  min-width: 10vw;
+}
+.announcement div h2 {
+  font-size: 3vh;
+  padding-bottom: 1vh;
 }
 .announcement div img {
   width: 100%;
