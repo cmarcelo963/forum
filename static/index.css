@@ -74,6 +74,7 @@ li {
 }
 .navigation section a {
   padding: 1vh;
+  text-decoration: none;
 }
 .main{
   grid-area: main;
