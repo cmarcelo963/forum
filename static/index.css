@@ -145,8 +145,8 @@ section a div img {
   display: grid;
   grid-template-columns: 4fr 1fr;
 }
-.announcement-inner div {
-  padding-right: 2vw;
+.announcement-inner div:first-of-type {
+  margin-right: 2vh;
 }
 .announcement div {
   min-width: 10vw;
