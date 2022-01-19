@@ -162,6 +162,7 @@ section a div img {
 .announcement button {
   width: fit-content;
   margin-top: 2vh;
+  background-color: hsl(86deg 70% 41%);
 }
 .categories {
   text-align: left;
