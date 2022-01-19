@@ -10,6 +10,7 @@ func Server() {
 	http.Handle("/about.svg", http.FileServer(http.Dir("../static/img")))
 	http.Handle("/contact.svg", http.FileServer(http.Dir("../static/img")))
 	http.Handle("/press.svg", http.FileServer(http.Dir("../static/img")))
+	http.Handle("/random.svg", http.FileServer(http.Dir("../static/img")))
 	http.HandleFunc("/", HandleDefault)
 	http.ListenAndServe(":8080", nil)
 }
