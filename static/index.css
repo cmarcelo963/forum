@@ -128,6 +128,7 @@ section a div img {
     "categories";
   grid-template-rows: 3fr 6fr;
   padding-top: 2vh;
+  min-height: 60vh;
 }
 .announcement {
   grid-area: announcement;
