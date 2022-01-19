@@ -134,7 +134,7 @@ section a div img {
   min-width: 0;
   background-color: #202e39;
   border-radius: 1vh;
-  padding: 6vh;
+  padding: 3vh;
   text-align: left;
   word-wrap: break-word;
   display: grid;
@@ -143,6 +143,7 @@ section a div img {
   grid-template-areas: 
   "t t i"
   "t t i";
+  overflow-wrap: anywhere;
 }
 .announcement div {
   height: 2vh;
