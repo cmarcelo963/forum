@@ -4,16 +4,8 @@ import "net/http"
 
 func Server() {
 	http.Handle("/index.css", http.FileServer(http.Dir("../static")))
-	http.Handle("/search.svg", http.FileServer(http.Dir("../static/img")))
-	http.Handle("/calendar.svg", http.FileServer(http.Dir("../static/img")))
-	http.Handle("/home.svg", http.FileServer(http.Dir("../static/img")))
-	http.Handle("/about.svg", http.FileServer(http.Dir("../static/img")))
-	http.Handle("/contact.svg", http.FileServer(http.Dir("../static/img")))
-	http.Handle("/press.svg", http.FileServer(http.Dir("../static/img")))
-	http.Handle("/random.svg", http.FileServer(http.Dir("../static/img")))
-	http.Handle("/share.svg", http.FileServer(http.Dir("../static/img")))
-	http.Handle("/log-out.svg", http.FileServer(http.Dir("../static/img")))
-	http.Handle("/forum.svg", http.FileServer(http.Dir("../static/img")))
+	fileServer := http.FileServer(http.Dir("../static/img"))
+	http.Handle("/img/", http.StripPrefix("/img", fileServer))
 	http.HandleFunc("/", HandleDefault)
 	http.ListenAndServe(":8080", nil)
 }
