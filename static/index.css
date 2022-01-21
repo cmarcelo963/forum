@@ -59,6 +59,18 @@ li {
   grid-area: logo;
   height: var(--header-height);
   padding: var(--header-padding);
+  display: flex;
+}
+.logo div {
+  height: 2vh;
+}
+.logo div img {
+  width: 100%;
+  height: 100%;
+  padding-right: 1vw;
+}
+.logo span {
+  transform: translate(0, -0.5vh);
 }
 .nav1 {
   border-bottom: 1px solid#2a3945;
