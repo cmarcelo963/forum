@@ -53,7 +53,7 @@ li {
   flex-direction: column;
   min-width: 20vw;
   overflow: hidden;
-  border-right: 1px solid #2a3945;
+  border-right: 0.2vw solid #2a3945;
   padding: 0 1vw;
 }
 .logo {
@@ -77,7 +77,7 @@ li {
   
 }
 .nav1 {
-  border-bottom: 1px solid#2a3945;
+  border-bottom: 0.2vw solid#2a3945;
   padding-bottom: 2vh;
 }
 .nav2 {
@@ -93,6 +93,9 @@ li {
   color: #7b8892;
   display: flex;
   align-items: center;
+}
+.navigation .currentpage {
+  color: white;
 }
 section a div {
   height: 2vh;
@@ -227,18 +230,19 @@ h2 div {
   grid-area: stat;
 }
 .currentpage {
-  background-color: black ;
+  background-color: #101b23 ;
   border-radius: 1vh;
-  filter: brightness(10);
+  color: white;
 }
 .currentpage div img {
   filter: brightness(10);
 }
 .nav-vertical-line::after {
-  border-right: 1px solid green;
+  border-right: 0.3vw solid green;
   content:"";
   position: absolute;
   top: 6vh;
   left: 21.9vw;
   padding: 2vh 0;
+  transform: translate(-0.15vh);
 }
