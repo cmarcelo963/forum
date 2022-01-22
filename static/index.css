@@ -216,6 +216,7 @@ h2 div {
 }
 .title-announcement {
   grid-area: t;
+  font-weight: bold;
 }
 .news {
   grid-area: news;
