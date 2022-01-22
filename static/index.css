@@ -281,3 +281,22 @@ h2 div {
 .category-list li {
   display: flex;
 }
+.filter-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 1vh 0;
+}
+.filter-categories {
+  display: flex;
+}
+.filter-categories div {
+  border: 0.1vw solid #202e39;
+  border-radius: 1vh;
+  margin-right: 1vw;
+  padding: 1vh;
+ }
+ .filter-img {
+  border: 0.1vw solid #202e39;
+  border-radius: 1vh;
+  padding: 0.5vh;
+ }
