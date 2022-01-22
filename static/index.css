@@ -118,6 +118,7 @@ section a div img {
   border-radius: 1vh;
   padding: var(--header-padding);
   padding-left: 2vh;
+  width: -moz-fit-content;
   width: fit-content;
   display: flex;
 }
@@ -180,6 +181,7 @@ section a div img {
   color: hsl(205deg 12% 60%);
 }
 .announcement button {
+  width: -moz-fit-content;
   width: fit-content;
   margin-top: 2vh;
   background-color: hsl(86deg 70% 41%);
