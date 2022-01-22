@@ -54,12 +54,14 @@ li {
   min-width: 20vw;
   overflow: hidden;
   border-right: 1px solid #2a3945;
+  padding: 0 1vh;
 }
 .logo {
   grid-area: logo;
   height: var(--header-height);
   padding: var(--header-padding);
   display: flex;
+  font-weight: bold;
 }
 .logo div {
   height: 2vh;
@@ -70,7 +72,9 @@ li {
   padding-right: 1vw;
 }
 .logo span {
-  transform: translate(0, -0.5vh);
+  transform: translate(0, -0.2vh);
+  font-size: 1vh;
+  
 }
 .nav1 {
   border-bottom: 1px solid#2a3945;
@@ -88,6 +92,7 @@ li {
   text-decoration: none;
   color: #7b8892;
   display: flex;
+  align-items: center;
 }
 section a div {
   height: 2vh;
@@ -218,4 +223,12 @@ h2 div {
 }
 .stat {
   grid-area: stat;
+}
+.currentpage {
+  background-color: black ;
+  border-radius: 1vh;
+  filter: brightness(10);
+}
+.currentpage div img {
+  filter: brightness(10);
 }
