@@ -256,3 +256,28 @@ h2 div {
   color: #0084ff;
   padding-right: 1vw;
 }
+.category-list .gaming-img {
+  background-color: #0084ff;
+  width: 4vh;
+  height: 4vh;
+  padding: 1vh;
+  border-radius: 1vh;
+}
+.gaming-img {
+  height: 4vh;
+  width: 4vh;
+  padding: 2vh;
+  border-radius: 1vh;
+  margin-right: 1vw;
+}
+.gaming-img div {
+  height: 2vh;
+  width: 2vh;
+}
+.gaming-img img {
+  height: 100%;
+  width: 100%;
+}
+.category-list li {
+  display: flex;
+}
