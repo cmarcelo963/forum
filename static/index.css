@@ -239,7 +239,7 @@ h2 div {
   filter: brightness(10);
 }
 .nav-vertical-line::after {
-  border-right: 0.3vw solid green;
+  border-right: 0.3vw solid hsl(86deg 70% 41%);
   content:"";
   position: absolute;
   top: 6vh;
