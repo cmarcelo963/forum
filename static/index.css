@@ -244,5 +244,14 @@ h2 div {
   top: 6vh;
   left: 21.9vw;
   padding: 2vh 0;
-  transform: translate(-0.15vh);
+  transform: translate(-0.2vh);
+}
+.route {
+  text-align: left;
+  padding-top: 1vh;
+  color: #7f8c96;
+}
+.route span {
+  color: #0084ff;
+  padding-right: 1vw;
 }
