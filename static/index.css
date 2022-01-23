@@ -378,7 +378,7 @@ h2 div {
 }
 .member-list li div {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
 }
 .member-list .member {
   background-color: hsl(207deg 27% 19%);
@@ -386,4 +386,16 @@ h2 div {
   height: 4vh;
   padding: 1vh;
   border-radius: 1vh;
+}
+.member-stats {
+  flex-direction: column;
+  padding-left: 1vw;
+}
+.member-stats h1 {
+  font-weight: bold;
+  padding-bottom: 0.5vh;
+  text-align: left;
+}
+.member-stats p {
+  color: hsl(205deg 15% 68%);
 }
