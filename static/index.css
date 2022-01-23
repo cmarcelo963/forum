@@ -203,6 +203,12 @@ section a div img {
   margin: 0.5vh 0; 
   background-color: #202e39;
   border-radius: 1vh;
+  display: flex;
+  justify-content: space-between;
+}
+.category-list li div {
+  display: flex;
+  align-items: center;
 }
 .categories h2 {
   display: flex;
@@ -279,9 +285,6 @@ h2 div {
 .gaming-img img {
   height: 100%;
   width: 100%;
-}
-.category-list li {
-  display: flex;
 }
 .filter-container {
   display: flex;
