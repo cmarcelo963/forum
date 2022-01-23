@@ -275,25 +275,46 @@ h2 div {
   color: #0084ff;
   padding-right: 1vw;
 }
-.category-list .gaming-img {
+.category-list .category-img {
   background-color: #0084ff;
   width: 4vh;
   height: 4vh;
   padding: 1vh;
   border-radius: 1vh;
 }
-.gaming-img {
+.category-list .gaming-colour {
+  background-color: #0084ff;
+}
+.category-list .coding-colour {
+  background-color: hsl(86deg 70% 41%);
+}
+.category-list .movies-colour {
+  background-color: hsl(252deg 79% 65%);
+}
+.category-list .tutorials-colour {
+  background-color: hsl(22deg 85% 56%);
+}
+.category-list .television-colour {
+  background-color: hsl(86deg 70% 41%);
+}
+.category-list .food-colour {
+  background-color: hsl(209deg 100% 50%);
+}
+.category-list .random-colour {
+  background-color: hsl(252deg 79% 65%);
+}
+.category-img {
   height: 4vh;
   width: 4vh;
   padding: 2vh;
   border-radius: 1vh;
   margin-right: 1vw;
 }
-.gaming-img div {
+.category-img div {
   height: 2vh;
   width: 2vh;
 }
-.gaming-img img {
+.category-img img {
   height: 100%;
   width: 100%;
 }
