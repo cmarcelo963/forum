@@ -45,7 +45,7 @@ li {
   padding: 2vh 2vw;
 }
 .navigation, .main, .news, .stat {
-  font-size: 1.5vh;
+  font-size: 1.4vh;
 }
 .navigation {
   grid-area: nav;
@@ -199,7 +199,7 @@ section a div img {
   padding-top: 2vh;
 }
 .category-list li{
-  padding: 1vh;
+  padding: 1vh 1.5vw;
   margin: 0.5vh 0; 
   background-color: #202e39;
   border-radius: 1vh;
@@ -217,6 +217,9 @@ section a div img {
 .category-stats h1 {
   font-weight: bold;
   padding-bottom: 0.5vh;
+}
+.category-stats p {
+  color: hsl(205deg 15% 68%);
 }
 .categories h2 {
   display: flex;
