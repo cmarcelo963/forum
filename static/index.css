@@ -191,6 +191,7 @@ section a div img {
   color: white;
   padding: 2vh;
   border-radius: 1vh;
+  font-weight: bold;
 }
 .categories {
   text-align: left;
@@ -205,6 +206,7 @@ section a div img {
 }
 .categories h2 {
   display: flex;
+  font-weight: bold;
 }
 h2 div img {
   width: 100%;
