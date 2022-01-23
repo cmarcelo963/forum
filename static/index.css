@@ -214,6 +214,10 @@ section a div img {
   flex-direction: column;
   padding-left: 1vw;
 }
+.category-stats h1 {
+  font-weight: bold;
+  padding-bottom: 0.5vh;
+}
 .categories h2 {
   display: flex;
   font-weight: bold;
