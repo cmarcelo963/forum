@@ -210,6 +210,10 @@ section a div img {
   display: flex;
   align-items: center;
 }
+.category-stats {
+  flex-direction: column;
+  padding-left: 1vw;
+}
 .categories h2 {
   display: flex;
   font-weight: bold;
