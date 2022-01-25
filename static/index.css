@@ -351,14 +351,14 @@ h2 div {
 }
 .staff-members {
   border-bottom: 0.2vw solid #2a3945;
-  padding-bottom: 2vh;
+  padding: 2vh 0;
 }
 .staff-members h2 {
   display: flex;
   font-weight: bold;
   align-items: center;
 }
-.member div img {
+.member div img, .recent-post div img {
   height: 100%;
   width: 100%;
 }
@@ -394,6 +394,7 @@ h2 div {
 .member-stats {
   flex-direction: column;
   padding-left: 1vw;
+  
 }
 .member-stats h1 {
   font-weight: bold;
@@ -402,4 +403,16 @@ h2 div {
 }
 .member-stats p {
   color: hsl(205deg 15% 68%);
+  overflow-wrap: break-word;
+}
+.recent-post .smaller-img {
+  height: 1vh;
+  width: 1vh;
+}
+.member-list .recent-post {
+  background-color: hsl(207deg 27% 19%);
+  width: 3vh;
+  height: 3vh;
+  padding: 1vh;
+  border-radius: 1vh;
 }
