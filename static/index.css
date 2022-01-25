@@ -246,6 +246,16 @@ h2 div {
   grid-area: user;
   height: var(--header-height);
   padding: var(--header-padding);
+  display: flex;
+}
+.user-status div {
+  height: 2vh;
+  width: 2vh;
+}
+.user-status div img {
+  height: 100%;
+  width: 100%;
+  padding-right: 1vw;
 }
 .stat {
   grid-area: stat;
