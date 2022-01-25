@@ -463,6 +463,12 @@ h2 div {
 }
 .stat-box .stat-text {
   flex-direction: column;
-  padding: 2vh 0;
+  padding: 1vh 0;
   text-align: left;
+}
+.stat-text h1 {
+  padding: 1vh 0;
+}
+.stat-text p {
+  color: hsl(205deg 15% 68%);
 }
