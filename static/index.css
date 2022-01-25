@@ -430,8 +430,39 @@ h2 div {
   border: 0.1vw solid #202e39;
   border-radius: 1vh;
   margin-right: 1vw;
-  padding: 1vh 1.5vw;
+  padding: 2vh;
+  height: 20vh;
+  width: 20vh;
+}
+.stat {
+  padding: 3vw;
 }
 .stat div {
   display: flex;
+  flex-direction: column;
+}
+.stat h2 {
+  display: flex;
+}
+.forum-img img {
+  height: 100%;
+  width: 100%;
+  filter: brightness(10);
+}
+.forum-img {
+  height: 5vh;
+  width: 5vh;
+  background-color: hsl(86deg 70% 41%);
+  padding: 1vh;
+  border-radius: 1vh;
+}
+.stat-box div {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+.stat-box .stat-text {
+  flex-direction: column;
+  padding: 2vh 0;
+  text-align: left;
 }
