@@ -429,7 +429,7 @@ h2 div {
 .stat-box {
   border: 0.1vw solid #202e39;
   border-radius: 1vh;
-  margin-right: 1vw;
+  margin-right: 2vw;
   padding: 2vh;
   height: 20vh;
   width: 20vh;
@@ -471,4 +471,12 @@ h2 div {
 }
 .stat-text p {
   color: hsl(205deg 15% 68%);
+}
+.loading {
+  height: 6vh;
+  width: 15vw;
+}
+.stat .stat-boxes {
+  display: flex;
+  flex-direction: row;
 }
