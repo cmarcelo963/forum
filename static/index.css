@@ -426,3 +426,12 @@ h2 div {
   padding: 1vh;
   border-radius: 1vh;
 }
+.stat-box {
+  border: 0.1vw solid #202e39;
+  border-radius: 1vh;
+  margin-right: 1vw;
+  padding: 1vh 1.5vw;
+}
+.stat div {
+  display: flex;
+}
