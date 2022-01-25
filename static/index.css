@@ -246,6 +246,16 @@ h2 div {
   grid-area: user;
   height: var(--header-height);
   padding: var(--header-padding);
+  display: flex;
+}
+.user-status div {
+  height: 2vh;
+  width: 2vh;
+}
+.user-status div img {
+  height: 100%;
+  width: 100%;
+  padding-right: 1vw;
 }
 .stat {
   grid-area: stat;
@@ -351,14 +361,14 @@ h2 div {
 }
 .staff-members {
   border-bottom: 0.2vw solid #2a3945;
-  padding-bottom: 2vh;
+  padding: 2vh 0;
 }
 .staff-members h2 {
   display: flex;
   font-weight: bold;
   align-items: center;
 }
-.member div img {
+.member div img, .recent-post div img {
   height: 100%;
   width: 100%;
 }
@@ -394,6 +404,7 @@ h2 div {
 .member-stats {
   flex-direction: column;
   padding-left: 1vw;
+  
 }
 .member-stats h1 {
   font-weight: bold;
@@ -402,4 +413,72 @@ h2 div {
 }
 .member-stats p {
   color: hsl(205deg 15% 68%);
+  overflow-wrap: break-word;
+}
+.recent-post .smaller-img {
+  height: 1vh;
+  width: 1vh;
+}
+.member-list .recent-post {
+  background-color: hsl(207deg 27% 19%);
+  width: 3vh;
+  height: 3vh;
+  padding: 1vh;
+  border-radius: 1vh;
+}
+.stat-box {
+  border: 0.1vw solid #202e39;
+  border-radius: 1vh;
+  margin-right: 2vw;
+  padding: 2vh;
+  height: 20vh;
+  width: 20vh;
+}
+.stat {
+  padding: 3vw;
+}
+.stat div {
+  display: flex;
+  flex-direction: column;
+}
+.stat h2 {
+  display: flex;
+  align-items: center;
+  padding-bottom: 2vh;
+}
+.forum-img img {
+  height: 100%;
+  width: 100%;
+  filter: brightness(10);
+}
+.forum-img {
+  height: 5vh;
+  width: 5vh;
+  background-color: hsl(86deg 70% 41%);
+  padding: 1vh;
+  border-radius: 1vh;
+}
+.stat-box div {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+.stat-box .stat-text {
+  flex-direction: column;
+  padding: 1vh 0;
+  text-align: left;
+}
+.stat-text h1 {
+  padding: 1vh 0;
+}
+.stat-text p {
+  color: hsl(205deg 15% 68%);
+}
+.loading {
+  height: 6vh;
+  width: 15vw;
+}
+.stat .stat-boxes {
+  display: flex;
+  flex-direction: row;
 }
