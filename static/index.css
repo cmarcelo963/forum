@@ -349,6 +349,10 @@ h2 div {
 .current-category {
   background-color: hsl(209deg 100% 50%);
 }
+.staff-members {
+  border-bottom: 0.2vw solid #2a3945;
+  padding-bottom: 2vh;
+}
 .staff-members h2 {
   display: flex;
   font-weight: bold;
