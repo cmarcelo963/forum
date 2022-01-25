@@ -443,6 +443,8 @@ h2 div {
 }
 .stat h2 {
   display: flex;
+  align-items: center;
+  padding-bottom: 2vh;
 }
 .forum-img img {
   height: 100%;
