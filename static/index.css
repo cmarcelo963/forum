@@ -487,6 +487,9 @@ h2 div {
 .hidden-eye-color {
   background-color: hsl(205deg 31% 12%);
 }
+.hidden-eye-color img {
+  visibility: hidden;
+}
 .total-posts-color {
   background-color: hsl(86deg 70% 41%);
 }
@@ -501,4 +504,7 @@ h2 div {
 }
 .current-statistic:hover {
   background-color: hsl(206deg 28% 17%);
+}
+.current-statistic:hover .hidden-eye-color img {
+  visibility: visible;
 }
