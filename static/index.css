@@ -499,6 +499,6 @@ h2 div {
 .quoted-posts-color {
   background-color: hsl(252deg 79% 65%);
 }
-.current-statistic {
+.current-statistic:hover {
   background-color: hsl(206deg 28% 17%);
 }
