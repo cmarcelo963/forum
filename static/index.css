@@ -446,15 +446,14 @@ h2 div {
   align-items: center;
   padding-bottom: 2vh;
 }
-.forum-img img {
+.stats-img img {
   height: 100%;
   width: 100%;
   filter: brightness(10);
 }
-.forum-img {
+.stats-img {
   height: 5vh;
   width: 5vh;
-  background-color: hsl(86deg 70% 41%);
   padding: 1vh;
   border-radius: 1vh;
 }
@@ -481,4 +480,31 @@ h2 div {
 .stat .stat-boxes {
   display: flex;
   flex-direction: row;
+}
+.loading-section {
+  align-items: center;
+}
+.hidden-eye-color {
+  background-color: hsl(205deg 31% 12%);
+}
+.hidden-eye-color img {
+  visibility: hidden;
+}
+.total-posts-color {
+  background-color: hsl(86deg 70% 41%);
+}
+.liked-posts-color {
+  background-color: hsl(29deg 94% 48%);
+}
+.total-threads-color {
+  background-color: hsl(209deg 100% 50%);
+}
+.quoted-posts-color {
+  background-color: hsl(252deg 79% 65%);
+}
+.current-statistic:hover {
+  background-color: hsl(206deg 28% 17%);
+}
+.current-statistic:hover .hidden-eye-color img {
+  visibility: visible;
 }
