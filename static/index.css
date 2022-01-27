@@ -483,6 +483,7 @@ h2 div {
 }
 .loading-section {
   align-items: center;
+  padding-top: 1.5vh;
 }
 .hidden-eye-color {
   background-color: hsl(205deg 31% 12%);
@@ -507,4 +508,25 @@ h2 div {
 }
 .current-statistic:hover .hidden-eye-color img {
   visibility: visible;
+}
+.loading {
+  height: 20px;
+  width: 6vw;
+  border-radius: 20%;
+}
+.loading-total-color {
+  border-right: 2vw solid hsl(206deg 17% 29%);
+  border-left: 4vw solid hsl(86deg 70% 41%);
+}
+.loading-liked-color {
+  border-right: 2vw solid hsl(206deg 17% 29%);
+  border-left: 4vw solid hsl(29deg 94% 48%);
+}
+.loading-thread-color {
+  border-right: 2vw solid hsl(206deg 17% 29%);
+  border-left: 4vw solid hsl(209deg 100% 50%);
+}
+.loading-quote-color {
+  border-right: 2vw solid hsl(206deg 17% 29%);
+  border-left: 4vw solid hsl(252deg 79% 65%);
 }
