@@ -38,7 +38,7 @@ li {
   grid-template-areas: 
   "nav nav main main main main main news news news"
   "nav nav stat stat stat stat stat stat stat stat";
-  height: 100vh;
+  height: 96vh;
   background-color: #152028;
   color: white;
   font-family: Arial, Helvetica, sans-serif;
