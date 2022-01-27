@@ -247,15 +247,16 @@ h2 div {
   height: var(--header-height);
   padding: var(--header-padding);
   display: flex;
+  align-items: center;
 }
 .user-status div {
   height: 2vh;
   width: 2vh;
+  margin-right: 1vh
 }
 .user-status div img {
   height: 100%;
   width: 100%;
-  padding-right: 1vw;
 }
 .stat {
   grid-area: stat;
@@ -510,23 +511,23 @@ h2 div {
   visibility: visible;
 }
 .loading {
-  height: 20px;
-  width: 6vw;
+  height: 1vh;
+  width: 5vw;
   border-radius: 20%;
 }
 .loading-total-color {
   border-right: 2vw solid hsl(206deg 17% 29%);
-  border-left: 4vw solid hsl(86deg 70% 41%);
+  border-left: 3vw solid hsl(86deg 70% 41%);
 }
 .loading-liked-color {
   border-right: 2vw solid hsl(206deg 17% 29%);
-  border-left: 4vw solid hsl(29deg 94% 48%);
+  border-left: 3vw solid hsl(29deg 94% 48%);
 }
 .loading-thread-color {
   border-right: 2vw solid hsl(206deg 17% 29%);
-  border-left: 4vw solid hsl(209deg 100% 50%);
+  border-left: 3vw solid hsl(209deg 100% 50%);
 }
-.loading-quote-color {
+.loading-quoted-color {
   border-right: 2vw solid hsl(206deg 17% 29%);
-  border-left: 4vw solid hsl(252deg 79% 65%);
+  border-left: 3vw solid hsl(252deg 79% 65%);
 }
