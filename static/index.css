@@ -50,7 +50,6 @@ li {
   grid-area: nav;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
   border-right: 0.2vw solid #2a3945;
   padding: 0 1vw;
   height: 96vh;
@@ -149,13 +148,11 @@ section a div img {
     "categories"
     "categories"
     "categories";
-  grid-template-rows: 3fr 6fr;
   padding-top: 2vh;
-  min-height: 60vh;
+  height: 61vh;
 }
 .announcement {
   grid-area: announcement;
-  min-width: 0;
   background-color: #202e39;
   border-radius: 1vh;
   padding: 3vh;
@@ -163,6 +160,8 @@ section a div img {
   word-wrap: break-word;
   display: grid;
   overflow-wrap: anywhere;
+  height: 20vh;
+  overflow: hidden;
 }
 .announcement-inner {
   display: grid;
@@ -199,6 +198,11 @@ section a div img {
   text-align: left;
   grid-area: categories;
   padding-top: 2vh;
+  height: 41vh;
+}
+.category-list {
+  height: 31vh;
+  overflow: scroll;
 }
 .category-list li{
   padding: 1vh 1.5vw;
