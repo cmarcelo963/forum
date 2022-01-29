@@ -158,7 +158,8 @@ section a div img {
   padding: 3vh;
   text-align: left;
   word-wrap: break-word;
-  display: grid;
+  display: flex;
+  justify-content: space-between;
   overflow-wrap: anywhere;
   height: 20vh;
   overflow: hidden;
@@ -172,9 +173,11 @@ section a div img {
 }
 .announcement div {
   min-width: 10vw;
+  display: flex;
+  flex-direction: column;
 }
 .announcement div h2 {
-  font-size: 3vh;
+  font-size: 2vh;
   padding-bottom: 1vh;
 }
 .announcement div img {
