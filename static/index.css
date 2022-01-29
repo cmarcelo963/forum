@@ -158,7 +158,8 @@ section a div img {
   padding: 3vh;
   text-align: left;
   word-wrap: break-word;
-  display: grid;
+  display: flex;
+  justify-content: space-between;
   overflow-wrap: anywhere;
   height: 20vh;
   overflow: hidden;
@@ -172,9 +173,11 @@ section a div img {
 }
 .announcement div {
   min-width: 10vw;
+  display: flex;
+  flex-direction: column;
 }
 .announcement div h2 {
-  font-size: 3vh;
+  font-size: 2vh;
   padding-bottom: 1vh;
 }
 .announcement div img {
@@ -247,6 +250,8 @@ h2 div {
 .news {
   grid-area: news;
   width: 28.8vw;
+  max-height: 67vh;
+  overflow: hidden;
 }
 .user-status {
   grid-area: user;
@@ -267,6 +272,8 @@ h2 div {
 .stat {
   grid-area: stat;
   height: 24vh;
+  width: 76.8vw;
+  padding: 0 3vw;
 }
 .currentpage {
   background-color: #101b23 ;
@@ -283,7 +290,7 @@ h2 div {
   top: 6vh;
   left: 21.9vw;
   padding: 2vh 0;
-  transform: translate(-0.2vh);
+  transform: translate(-1vw);
 }
 .route {
   text-align: left;
@@ -441,9 +448,6 @@ h2 div {
   padding: 2vh;
   height: 20vh;
   width: 20vh;
-}
-.stat {
-  padding: 0 3vw;
 }
 .stat div {
   display: flex;
