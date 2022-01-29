@@ -267,6 +267,8 @@ h2 div {
 .stat {
   grid-area: stat;
   height: 24vh;
+  width: 76.8vw;
+  padding: 0 3vw;
 }
 .currentpage {
   background-color: #101b23 ;
@@ -441,9 +443,6 @@ h2 div {
   padding: 2vh;
   height: 20vh;
   width: 20vh;
-}
-.stat {
-  padding: 0 3vw;
 }
 .stat div {
   display: flex;
