@@ -247,6 +247,8 @@ h2 div {
 .news {
   grid-area: news;
   width: 28.8vw;
+  max-height: 67vh;
+  overflow: hidden;
 }
 .user-status {
   grid-area: user;
