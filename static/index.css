@@ -34,7 +34,6 @@ li {
 .container {
   display: grid;
   grid-template-columns: auto;
-  grid-template-rows: 4fr 1fr;
   grid-template-areas: 
   "nav nav main main main main main news news news"
   "nav nav stat stat stat stat stat stat stat stat";
@@ -51,10 +50,10 @@ li {
   grid-area: nav;
   display: flex;
   flex-direction: column;
-  min-width: 20vw;
-  overflow: hidden;
   border-right: 0.2vw solid #2a3945;
   padding: 0 1vw;
+  height: 96vh;
+  width: 19.2vw;
 }
 .logo {
   grid-area: logo;
@@ -108,12 +107,14 @@ section a div img {
 .main {
   grid-area: main;
   text-align: center;
-  min-width: 50vw;
   padding: 0 3vw;
+  width: 48vw;
+  height: 67vh;
+  overflow: hidden;
 }
 .search-bar {
   grid-area: search;
-  min-width: 50vw;
+  width: 48vw;
   height: var(--header-height);
 }
 .search-container {
@@ -147,13 +148,11 @@ section a div img {
     "categories"
     "categories"
     "categories";
-  grid-template-rows: 3fr 6fr;
   padding-top: 2vh;
-  min-height: 60vh;
+  height: 61vh;
 }
 .announcement {
   grid-area: announcement;
-  min-width: 0;
   background-color: #202e39;
   border-radius: 1vh;
   padding: 3vh;
@@ -161,6 +160,8 @@ section a div img {
   word-wrap: break-word;
   display: grid;
   overflow-wrap: anywhere;
+  height: 20vh;
+  overflow: hidden;
 }
 .announcement-inner {
   display: grid;
@@ -197,6 +198,11 @@ section a div img {
   text-align: left;
   grid-area: categories;
   padding-top: 2vh;
+  height: 41vh;
+}
+.category-list {
+  height: 31vh;
+  overflow: scroll;
 }
 .category-list li{
   padding: 1vh 1.5vw;
@@ -240,25 +246,27 @@ h2 div {
 }
 .news {
   grid-area: news;
-  min-width: 30vw;
+  width: 28.8vw;
 }
 .user-status {
   grid-area: user;
   height: var(--header-height);
   padding: var(--header-padding);
   display: flex;
+  align-items: center;
 }
 .user-status div {
   height: 2vh;
   width: 2vh;
+  margin-right: 1vh
 }
 .user-status div img {
   height: 100%;
   width: 100%;
-  padding-right: 1vw;
 }
 .stat {
   grid-area: stat;
+  height: 24vh;
 }
 .currentpage {
   background-color: #101b23 ;
@@ -435,7 +443,7 @@ h2 div {
   width: 20vh;
 }
 .stat {
-  padding: 3vw;
+  padding: 0 3vw;
 }
 .stat div {
   display: flex;
@@ -483,6 +491,7 @@ h2 div {
 }
 .loading-section {
   align-items: center;
+  padding-top: 1.5vh;
 }
 .hidden-eye-color {
   background-color: hsl(205deg 31% 12%);
@@ -507,4 +516,25 @@ h2 div {
 }
 .current-statistic:hover .hidden-eye-color img {
   visibility: visible;
+}
+.loading {
+  height: 1vh;
+  width: 5vw;
+  border-radius: 20%;
+}
+.loading-total-color {
+  border-right: 2vw solid hsl(206deg 17% 29%);
+  border-left: 3vw solid hsl(86deg 70% 41%);
+}
+.loading-liked-color {
+  border-right: 2vw solid hsl(206deg 17% 29%);
+  border-left: 3vw solid hsl(29deg 94% 48%);
+}
+.loading-thread-color {
+  border-right: 2vw solid hsl(206deg 17% 29%);
+  border-left: 3vw solid hsl(209deg 100% 50%);
+}
+.loading-quoted-color {
+  border-right: 2vw solid hsl(206deg 17% 29%);
+  border-left: 3vw solid hsl(252deg 79% 65%);
 }
