@@ -208,9 +208,9 @@ section a div img {
   overflow: scroll;
   overflow-y: scroll;
   -webkit-mask-image: linear-gradient(to top, transparent, green), linear-gradient(to left, transparent 17px, green 17px);
--webkit-mask-size: 100% 20000px;
--webkit-mask-position: left bottom;
-transition: mask-position 0.3s, -webkit-mask-position 0.3s;
+  -webkit-mask-size: 100% 20000px;
+  -webkit-mask-position: left bottom;
+  transition: mask-position 0.3s, -webkit-mask-position 0.3s;
 }
 .category-list:hover {
   -webkit-mask-position: left top;
@@ -532,7 +532,7 @@ h2 div {
 .loading {
   height: 1vh;
   width: 5vw;
-  border-radius: 20%;
+  border-radius: 1vh;
 }
 .loading-total-color {
   border-right: 2vw solid hsl(206deg 17% 29%);
