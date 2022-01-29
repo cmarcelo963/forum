@@ -283,7 +283,7 @@ h2 div {
   top: 6vh;
   left: 21.9vw;
   padding: 2vh 0;
-  transform: translate(-0.2vh);
+  transform: translate(-1vw);
 }
 .route {
   text-align: left;
