@@ -223,6 +223,9 @@ section a div img {
   display: flex;
   justify-content: space-between;
 }
+.category-list li:first-of-type {
+  margin-top: 0;
+}
 .category-list li div {
   display: flex;
   align-items: center;
@@ -549,4 +552,17 @@ h2 div {
 .loading-quoted-color {
   border-right: 2vw solid hsl(206deg 17% 29%);
   border-left: 3vw solid hsl(252deg 79% 65%);
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+::-webkit-scrollbar-thumb {
+  background: #202e39; 
+  padding: 0 0.1vw;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
 }
