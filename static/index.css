@@ -566,3 +566,42 @@ h2 div {
 ::-webkit-scrollbar-thumb:hover {
   background: #555; 
 }
+.login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: absolute;
+  background: hsl(206deg 28% 17%);
+  height: 96vh;
+  width: 96vw;
+}
+.login form {
+  display: flex;
+  flex-direction: column;
+  width: 35vw;
+  height: 30vh;
+  background-color: hsl(205deg 31% 12%);
+  flex-direction: column;
+  padding: 1vh;
+  justify-content: center;
+  align-items: center;
+}
+.login input {
+  border: 1px solid white;
+  margin: 0.5vh;
+  border-radius: 1vh;
+  padding: 1vh;
+}
+.login input[type="submit"] {
+  margin: 1.5vh;
+}
+.login form:first-of-type {
+  border-top-left-radius: 1vh;
+  border-top-right-radius: 1vh;
+
+}
+.login form:nth-of-type(2) {
+  border-bottom-left-radius: 1vh;
+  border-bottom-right-radius: 1vh;
+}
