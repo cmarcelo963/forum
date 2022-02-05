@@ -301,10 +301,10 @@
             </div>
         </section>
         <section class="login">
-            <form>
+            <form action="/login" method="POST">
                 <h1>Log-In</h1>
-                <input type="text" placeholder="Username">
-                <input type="password" placeholder="Password">
+                <input type="text" name="username" placeholder="Username">
+                <input type="password" name="password" placeholder="Password">
                 <input type="submit">
             </form>
             <form action="/signin" method="POST">
