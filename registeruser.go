@@ -4,6 +4,7 @@ import (
 	"database/sql"
 	"log"
 	"os"
+	_ "github.com/mattn/go-sqlite3" // Import go-sqlite3 library
 )
 
 func RegisterUser(userDetails []string) {
@@ -11,13 +12,17 @@ func RegisterUser(userDetails []string) {
 	//is already a database
 	//yes - update database
 	//no - create one
-	file, err := os.Create("forum-database.db") // Create SQLite file
+	file, err := os.Create("./forum-database.db") // Create SQLite file
 	if err != nil {
 		log.Fatal(err.Error())
 	}
 	file.Close()
 
-	forumDatabase, _ := sql.Open("sqlite3", "./forum-database.db")
+	forumDatabase, err := sql.Open("sqlite3", "./forum-database.db")
+	if err != nil {
+		log.Fatal(err.Error())
+	}
+	
 	defer forumDatabase.Close()
 
 	createUserTable(forumDatabase)
@@ -29,18 +34,21 @@ func RegisterUser(userDetails []string) {
 }
 
 func createUserTable(db *sql.DB) {
-	createForumTableSQL := `CREATE TABLE user(
+	createForumTableSQL := `
+		CREATE TABLE user(
 		"id" integer NOT NULL PRIMARY KEY AUTOINCREMENT,
 		"email" TEXT,
 		"username" TEXT,
 		"password" TEXT
-	 );`
+	 );
+	 `
 
 	statement, err := db.Prepare(createForumTableSQL)
 	if err != nil {
 		log.Fatal(err.Error())
 	}
 	statement.Exec()
+	log.Print(err)
 }
 
 func insertNewUser(db *sql.DB, email string, username string, password string) {
@@ -68,6 +76,7 @@ func displayUsers(db *sql.DB) {
 		var username string
 		var password string
 		row.Scan(&email, &username, &password)
-		log.Println("User: ", email, " ", username, " ", password)
+		log.Println(email)
+		log.Printf("User: %v, %v, %v", email, username, password)
 	}
 }
