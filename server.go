@@ -8,5 +8,6 @@ func Server() {
 	http.Handle("/img/", http.StripPrefix("/img", fileServer))
 	http.HandleFunc("/", HandleDefault)
 	http.HandleFunc("/sign-up", HandleSignRequest)
+	http.HandleFunc("/login", HandleLoginRequest)
 	http.ListenAndServe(":8080", nil)
 }
