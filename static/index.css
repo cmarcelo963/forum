@@ -602,7 +602,6 @@ h2 div {
   background-color: hsl(206deg 28% 17%);
 }
 .login form:nth-of-type(2) {
-  position: absolute;
   padding-top: 1vh;
   height: 40vh;
 }
