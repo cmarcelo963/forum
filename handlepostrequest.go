@@ -5,7 +5,7 @@ import (
 	// "text/template"
 )
 
-func HandlePostRequest(w http.ResponseWriter, r *http.Request) {
+func HandleSignRequest(w http.ResponseWriter, r *http.Request) {
 	r.ParseForm()
 	if len(r.Form) == 0 { // if the form contains no length or is a valid ascii character, 400 error
 		http.Error(w, "400 Bad Request", http.StatusBadRequest)
