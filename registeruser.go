@@ -66,17 +66,17 @@ func insertNewUser(db *sql.DB, email string, username string, password string) {
 }
 
 func displayUsers(db *sql.DB) {
-	row, err := db.Query("SELECT * FROM user ORDER BY username")
+	row, err := db.Query("SELECT * FROM user ORDER BY id")
 	if err != nil {
 		log.Fatal(err)
 	}
 	defer row.Close()
 	for row.Next() {
+		var id uint
 		var email string
 		var username string
 		var password string
-		row.Scan(&email, &username, &password)
-		log.Println(email)
-		log.Printf("User: %v, %v, %v", email, username, password)
+		row.Scan(&id, &email, &username, &password)
+		log.Printf("User: %v, %v, %v, %v", id, email, username, password)
 	}
 }
