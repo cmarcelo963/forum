@@ -6,7 +6,7 @@ import (
 	"os"
 )
 
-func registeruser(userDetails []string) {
+func RegisterUser(userDetails []string) {
 	//add if else statement to check if there
 	//is already a database
 	//yes - update database
@@ -20,7 +20,7 @@ func registeruser(userDetails []string) {
 	forumDatabase, _ := sql.Open("sqlite3", "./forum-database.db")
 	defer forumDatabase.Close()
 
-	createTable(forumDatabase)
+	createUserTable(forumDatabase)
 
 	//INSERT RECORD OF NEW USER
 	insertNewUser(forumDatabase, userDetails[0], userDetails[1], userDetails[2])
@@ -28,8 +28,9 @@ func registeruser(userDetails []string) {
 	displayUsers(forumDatabase)
 }
 
-func createTable(db *sql.DB) {
-	createForumTableSQL := `CREATE TABLE student (
+func createUserTable(db *sql.DB) {
+	createForumTableSQL := `CREATE TABLE user(
+		"id" integer NOT NULL PRIMARY KEY AUTOINCREMENT,
 		"email" TEXT,
 		"username" TEXT,
 		"password" TEXT
@@ -43,7 +44,7 @@ func createTable(db *sql.DB) {
 }
 
 func insertNewUser(db *sql.DB, email string, username string, password string) {
-	insertNewUserSQL := `INSERT INTO forum(email, username, password) VALUES (?, ?, ?)`
+	insertNewUserSQL := `INSERT INTO user (email, username, password) VALUES (?, ?, ?)`
 	statement, err := db.Prepare(insertNewUserSQL)
 	//Prepares statement to avoid SQL injection
 
@@ -57,7 +58,7 @@ func insertNewUser(db *sql.DB, email string, username string, password string) {
 }
 
 func displayUsers(db *sql.DB) {
-	row, err := db.Query("SELECT * FROM student ORDER BY name")
+	row, err := db.Query("SELECT * FROM user ORDER BY username")
 	if err != nil {
 		log.Fatal(err)
 	}
