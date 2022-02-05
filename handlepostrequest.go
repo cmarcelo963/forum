@@ -15,7 +15,8 @@ func HandlePostRequest(w http.ResponseWriter, r *http.Request) {
 		//tpl, _ := template.ParseFiles("../templates/index.gohtml") // double check where the program is being run
 		userName := r.Form["username"][0]
 		password := r.Form["password"][0]
-		log.Println(email, userName, password)
+		var userData = []string{email, userName, password}
+		log.Println(userData)
 		//tpl.Execute(res, artToDisplay)
 	}
 }
