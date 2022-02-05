@@ -35,7 +35,7 @@ func RegisterUser(userDetails []string) {
 
 func createUserTable(db *sql.DB) {
 	createForumTableSQL := `
-		CREATE TABLE user(
+		CREATE TABLE IF NOT EXISTS user(
 		"id" integer NOT NULL PRIMARY KEY AUTOINCREMENT,
 		"email" TEXT,
 		"username" TEXT,

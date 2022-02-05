@@ -16,6 +16,7 @@ func HandlePostRequest(w http.ResponseWriter, r *http.Request) {
 		userName := r.Form["username"][0]
 		password := r.Form["password"][0]
 		var userData = []string{email, userName, password}
+		RegisterUser(userData)
 		log.Println(userData)
 		//tpl.Execute(res, artToDisplay)
 	}
