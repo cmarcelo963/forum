@@ -7,5 +7,6 @@ func Server() {
 	fileServer := http.FileServer(http.Dir("../static/img"))
 	http.Handle("/img/", http.StripPrefix("/img", fileServer))
 	http.HandleFunc("/", HandleDefault)
+	http.HandleFunc("/signin", HandlePostRequest)
 	http.ListenAndServe(":8080", nil)
 }
