@@ -4,25 +4,25 @@ import (
 	"database/sql"
 	"log"
 	"os"
+
 	_ "github.com/mattn/go-sqlite3" // Import go-sqlite3 library
 )
 
 func RegisterUser(userDetails []string) {
-	//add if else statement to check if there
-	//is already a database
-	//yes - update database
-	//no - create one
-	file, err := os.Create("./forum-database.db") // Create SQLite file
-	if err != nil {
-		log.Fatal(err.Error())
-	}
-	file.Close()
 
+	if _, err := os.Stat("./forum-database.db"); err != nil {
+		file, err := os.Create("./forum-database.db") // Create SQLite file
+		if err != nil {
+			log.Fatal(err.Error())
+		}
+		file.Close()
+	}
+	
 	forumDatabase, err := sql.Open("sqlite3", "./forum-database.db")
 	if err != nil {
 		log.Fatal(err.Error())
 	}
-	
+
 	defer forumDatabase.Close()
 
 	createUserTable(forumDatabase)
