@@ -20,7 +20,7 @@ func LoginUser(userData []string) {
 		case sql.ErrNoRows:
 			log.Println("No rows were returned!")
 		case nil:
-			log.Println(userName, password)
+			log.Println("Logged in succesfully: ", userName, password)
 		default:
 			log.Println(err.Error())
 	}
