@@ -21,6 +21,7 @@ func LoginUser(userData []string) {
 			log.Println("Username or password incorrect!")
 		case nil:
 			log.Println("Logged in succesfully: ", userName, password)
+			CreateSession(userName, password)
 		default:
 			log.Println(err.Error())
 	}

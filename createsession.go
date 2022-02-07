@@ -18,10 +18,11 @@ func CreateSession(userName string, sessionToken string) {
 }
 func createSessionCacheTable(db *sql.DB) {
 	createSessionSQL := `
-		CREATE TABLE IF NOT EXISTS session(
+		CREATE TABLE IF NOT EXISTS session_cache(
 		"id" integer NOT NULL PRIMARY KEY AUTOINCREMENT,
 		"username" TEXT UNIQUE,
-		"session-token" TEXT UNIQUE
+		"session_token" TEXT UNIQUE,
+		"session_time" 	DATETIME
 	 );
 	 `
 	statement, err := db.Prepare(createSessionSQL)
@@ -31,8 +32,9 @@ func createSessionCacheTable(db *sql.DB) {
 	statement.Exec()
 }
 func insertNewSession(db *sql.DB, userName string, sessionToken string) {
-	insertNewSessionSQL := `INSERT INTO session (username, session_token) VALUES (?, ?)`
+	insertNewSessionSQL := `INSERT INTO session_cache (username, session_token, session_time) VALUES (?, ?, CURRENT_TIMESTAMP)`
 	statement, err := db.Prepare(insertNewSessionSQL)
+	//timeStamp := `CURRENT_TIMESTAMP`
 	//Prepares statement to avoid SQL injection
 	if err != nil {
 		log.Println(err.Error())
