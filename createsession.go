@@ -20,8 +20,8 @@ func createSessionCacheTable(db *sql.DB) {
 	createSessionSQL := `
 		CREATE TABLE IF NOT EXISTS session_cache(
 		"id" integer NOT NULL PRIMARY KEY AUTOINCREMENT,
-		"username" TEXT UNIQUE,
-		"session_token" TEXT UNIQUE,
+		"username" TEXT,
+		"session_token" TEXT,
 		"session_time" 	DATETIME
 	 );
 	 `
