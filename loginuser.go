@@ -3,9 +3,10 @@ package forum
 import (
 	"database/sql"
 	"log"
+
 )
 
-func LoginUser(userData []string) {
+func LoginUser(userData []string, sessionToken string) {
 	forumDatabase, err := sql.Open("sqlite3", "./forum-database.db")
 	if err != nil {
 		log.Println(err.Error())
@@ -17,15 +18,14 @@ func LoginUser(userData []string) {
 	var password string
 	err = row.Scan(&userName, &password)
 	switch err {
-		case sql.ErrNoRows:
-			log.Println("Username or password incorrect!")
-		case nil:
-			log.Println("Logged in succesfully: ", userName, password)
-			CreateSession(userName, password)
-		default:
-			log.Println(err.Error())
+	case sql.ErrNoRows:
+		log.Println("Username or password incorrect!")
+	case nil:
+		log.Println("Logged in succesfully: ", userName, password)
+		CreateSession(userName, sessionToken)
+	default:
+		log.Println(err.Error())
 	}
 
-  
 	//displayUsers(forumDatabase)
 }

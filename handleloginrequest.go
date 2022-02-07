@@ -1,6 +1,11 @@
 package forum
 
-import "net/http"
+import (
+	"net/http"
+	"time"
+
+	uuid "github.com/satori/go.uuid"
+)
 
 func HandleLoginRequest(w http.ResponseWriter, r *http.Request) {
 	r.ParseForm()
@@ -10,8 +15,14 @@ func HandleLoginRequest(w http.ResponseWriter, r *http.Request) {
 		//tpl, _ := template.ParseFiles("../templates/index.gohtml") // double check where the program is being run
 		userName := r.Form["username"][0]
 		password := r.Form["password"][0]
-		var userData = []string{ userName, password}
-		LoginUser(userData)
+		var userData = []string{userName, password}
+		sessionToken := uuid.NewV4().String()
+		http.SetCookie(w, &http.Cookie{
+			Name:    "session_token",
+			Value:   sessionToken,
+			Expires: time.Now().Add(30 * time.Minute),
+		})
+		LoginUser(userData, sessionToken)
 		//tpl.Execute(res, artToDisplay)
 	}
 }
