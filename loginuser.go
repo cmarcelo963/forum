@@ -18,7 +18,7 @@ func LoginUser(userData []string) {
 	err = row.Scan(&userName, &password)
 	switch err {
 		case sql.ErrNoRows:
-			log.Println("No rows were returned!")
+			log.Println("Username or password incorrect!")
 		case nil:
 			log.Println("Logged in succesfully: ", userName, password)
 		default:
