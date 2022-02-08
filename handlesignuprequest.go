@@ -2,7 +2,7 @@ package forum
 
 import (
 	"net/http"
-	// "text/template"
+	"text/template"
 )
 
 func HandleSignUpRequest(w http.ResponseWriter, r *http.Request) {
@@ -11,11 +11,13 @@ func HandleSignUpRequest(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "400 Bad Request", http.StatusBadRequest)
 	} else {
 		email := r.Form["email"][0]
+		tpl, _ := template.ParseFiles("../static/templates/sign-up.gohtml")
 		//tpl, _ := template.ParseFiles("../templates/index.gohtml") // double check where the program is being run
 		userName := r.Form["username"][0]
 		password := r.Form["password"][0]
 		var userData = []string{email, userName, password}
 		RegisterUser(userData)
-		//tpl.Execute(res, artToDisplay)
+		tpl.Execute(w, nil)
+		//http.Redirect(w, r, "http://localhost:8080/", http.StatusSeeOther)
 	}
 }
