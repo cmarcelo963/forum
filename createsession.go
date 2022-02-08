@@ -23,8 +23,8 @@ func createSessionCacheTable(db *sql.DB) {
 		"username" TEXT,
 		"session_token" TEXT,
 		"session_time" 	DATETIME
-	 );
-	 `
+		);
+	`
 	statement, err := db.Prepare(createSessionSQL)
 	if err != nil {
 		log.Println(err.Error())

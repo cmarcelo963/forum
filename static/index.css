@@ -608,3 +608,9 @@ h2 div {
 .login h1 {
   color: white;
 }
+.posts {
+  position: absolute;
+  width: 20vw;
+  height: 30vh;
+  background: black;
+}
