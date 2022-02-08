@@ -614,3 +614,9 @@ h2 div {
   height: 30vh;
   background: black;
 }
+.a {
+  display: none;
+}
+.authenticated {
+  display: block;
+}
