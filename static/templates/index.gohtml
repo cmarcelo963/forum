@@ -318,7 +318,17 @@
         </section>
         <section class="posts">
             Posts Section
-            <div class="a {{.Authenticated}}">User correctly authenticated!</div>
+            <div>Post
+                <div>Username</div>
+                <div>Post text</div>
+                <div>Likes</div>
+                <div>Comments</div>
+                <button class="authenticated-section {{.Authenticated}}">Like</button>
+                <button class="authenticated-section {{.Authenticated}}">Comment</button>
+            </div>
+            <div class="authenticated-section {{.Authenticated}}">User correctly authenticated!
+                <button>Create new Post</button>
+            </div>
         </section>
     </body>
 </html>

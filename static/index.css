@@ -614,7 +614,7 @@ h2 div {
   height: 30vh;
   background: black;
 }
-.a {
+.authenticated-section {
   display: none;
 }
 .authenticated {
