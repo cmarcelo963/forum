@@ -327,7 +327,10 @@
                 <button class="authenticated-section {{.Authenticated}}">Comment</button>
             </div>
             <div class="authenticated-section {{.Authenticated}}">User correctly authenticated!
-                <button>Create new Post</button>
+                <button>Create new post</button>
+                <form action="new-post" method="POST">
+                    <input type="submit" value="Send">
+                </form>
             </div>
         </section>
     </body>
