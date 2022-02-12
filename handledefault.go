@@ -6,9 +6,11 @@ import (
 	"net/http"
 	"text/template"
 )
+
 type Auth struct {
 	Authenticated string
 }
+
 func HandleDefault(w http.ResponseWriter, r *http.Request) {
 	tpl, err := template.ParseFiles("../static/templates/index.gohtml")
 	if err != nil {
@@ -24,10 +26,13 @@ func HandleDefault(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusBadRequest)
 		return
 	}
-	log.Println(c)
+
+	var userSession Auth
+	if AuthenticateSession(c.Value) {
+		userSession.Authenticated = "authenticated"
+	}
+	log.Println(c, "hi")
+	tpl.Execute(w, userSession)
 	// getLastSessionToken(c.Value)
 	// log.Println("Session token: ", c.Value)
-	var userSession Auth
-	userSession.Authenticated = "authenticated"
-	tpl.Execute(w, userSession)
 }
