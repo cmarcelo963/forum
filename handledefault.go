@@ -24,8 +24,9 @@ func HandleDefault(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusBadRequest)
 		return
 	}
-	getLastSessionToken(c.Value)
-	log.Println("Session token: ", c.Value)
+	log.Println(c)
+	// getLastSessionToken(c.Value)
+	// log.Println("Session token: ", c.Value)
 	var userSession Auth
 	userSession.Authenticated = "authenticated"
 	tpl.Execute(w, userSession)

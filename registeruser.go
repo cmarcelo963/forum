@@ -6,6 +6,7 @@ import (
 	"os"
 
 	_ "github.com/mattn/go-sqlite3" // Import go-sqlite3 library
+	"golang.org/x/crypto/bcrypt"
 )
 
 func RegisterUser(userDetails []string) {
@@ -21,10 +22,12 @@ func RegisterUser(userDetails []string) {
 		log.Println(err.Error())
 	}
 	defer forumDatabase.Close()
+	encryptedPassword, _ := HashPassword(userDetails[2])
 	createUserTable(forumDatabase)
-	insertNewUser(forumDatabase, userDetails[0], userDetails[1], userDetails[2])
+	insertNewUser(forumDatabase, userDetails[0], userDetails[1], encryptedPassword)
 	displayUsers(forumDatabase)
 }
+
 func createUserTable(db *sql.DB) {
 	createForumTableSQL := `
 		CREATE TABLE IF NOT EXISTS user(
@@ -40,10 +43,11 @@ func createUserTable(db *sql.DB) {
 	}
 	statement.Exec()
 }
+
 func insertNewUser(db *sql.DB, email string, userName string, password string) {
 	insertNewUserSQL := `INSERT INTO user (email, username, password) VALUES (?, ?, ?)`
 	statement, err := db.Prepare(insertNewUserSQL)
-	//Prepares statement to avoid SQL injection
+	// Prepares statement to avoid SQL injection
 	if err != nil {
 		log.Println(err.Error())
 	}
@@ -52,6 +56,7 @@ func insertNewUser(db *sql.DB, email string, userName string, password string) {
 		log.Println(err.Error())
 	}
 }
+
 func displayUsers(db *sql.DB) {
 	row, err := db.Query("SELECT * FROM user ORDER BY id")
 	if err != nil {
@@ -66,4 +71,9 @@ func displayUsers(db *sql.DB) {
 		row.Scan(&id, &email, &username, &password)
 		log.Printf("User: %v, %v, %v, %v", id, email, username, password)
 	}
+}
+
+func HashPassword(password string) (string, error) {
+	hash, err := bcrypt.GenerateFromPassword([]byte(password), 14)
+	return string(hash), err
 }

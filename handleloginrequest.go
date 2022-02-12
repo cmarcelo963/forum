@@ -18,12 +18,14 @@ func HandleLoginRequest(w http.ResponseWriter, r *http.Request) {
 		password := r.Form["password"][0]
 		var userData = []string{userName, password}
 		sessionToken := uuid.NewV4().String()
-		http.SetCookie(w, &http.Cookie{
-			Name:    "session_token",
-			Value:   sessionToken,
-			Expires: time.Now().Add(30 * time.Minute),
-		})
-		LoginUser(userData, sessionToken)
+		authenticated := LoginUser(userData, sessionToken)
+		if authenticated {
+			http.SetCookie(w, &http.Cookie{
+				Name:    "session_token",
+				Value:   sessionToken,
+				Expires: time.Now().Add(30 * time.Minute),
+			})
+		}
 		tpl.Execute(w, nil)
 	}
 }
