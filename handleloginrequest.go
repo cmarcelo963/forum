@@ -22,9 +22,10 @@ func HandleLoginRequest(w http.ResponseWriter, r *http.Request) {
 		if authenticated {
 			http.SetCookie(w, &http.Cookie{
 				Name:    "session_token",
-				Value:   sessionToken,
+				Value:   userName + "-" + sessionToken,
 				Expires: time.Now().Add(30 * time.Minute),
 			})
+			
 		}
 		tpl.Execute(w, nil)
 	}
