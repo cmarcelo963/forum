@@ -3,10 +3,9 @@ package forum
 import (
 	"database/sql"
 	"log"
-
 )
 
-func LoginUser(userData []string, sessionToken string) {
+func LoginUser(userData []string, sessionToken string) bool {
 	forumDatabase, err := sql.Open("sqlite3", "./forum-database.db")
 	if err != nil {
 		log.Println(err.Error())
@@ -20,11 +19,15 @@ func LoginUser(userData []string, sessionToken string) {
 	switch err {
 	case sql.ErrNoRows:
 		log.Println("Username or password incorrect!")
+		return false
 	case nil:
 		log.Println("Logged in succesfully: ", userName, password)
+		log.Println("hi")
 		CreateSession(userName, sessionToken)
+		return true
 	default:
 		log.Println(err.Error())
+		return false
 	}
 
 	//displayUsers(forumDatabase)
