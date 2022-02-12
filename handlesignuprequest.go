@@ -15,7 +15,7 @@ func HandleSignUpRequest(w http.ResponseWriter, r *http.Request) {
 		//tpl, _ := template.ParseFiles("../templates/index.gohtml") // double check where the program is being run
 		userName := r.Form["username"][0]
 		password := r.Form["password"][0]
-		var userData = []string{email, userName, password}
+		var userData = []string{email, userName, password, password}
 		RegisterUser(userData)
 		tpl.Execute(w, nil)
 		//http.Redirect(w, r, "http://localhost:8080/", http.StatusSeeOther)
