@@ -620,3 +620,6 @@ h2 div {
 .authenticated {
   display: block;
 }
+.navigation section a.authenticated-section{
+  display: none;
+}
