@@ -1,5 +1,5 @@
 
-function compare_input(e){
+function compareInput(e){
     var first=document.getElementById('first-password').value;
     var second=document.getElementById('second-password').value;
         if (first !== second) {
