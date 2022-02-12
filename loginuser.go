@@ -11,7 +11,7 @@ func LoginUser(userData []string, sessionToken string) bool {
 		log.Println(err.Error())
 	}
 	defer forumDatabase.Close()
-	loginSQL := `SELECT password FROM user WHERE username = ?`
+	loginSQL := `SELECT username,password FROM user WHERE username = ?`
 	row := forumDatabase.QueryRow(loginSQL, userData[0])
 	log.Println(row)
 	var userName string
@@ -43,5 +43,5 @@ func LoginUser(userData []string, sessionToken string) bool {
 	// 	return false
 	// }
 
-	//displayUsers(forumDatabase)
+	// displayUsers(forumDatabase)
 }
