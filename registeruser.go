@@ -6,7 +6,6 @@ import (
 	"os"
 
 	_ "github.com/mattn/go-sqlite3" // Import go-sqlite3 library
-	"golang.org/x/crypto/bcrypt"
 )
 
 func RegisterUser(userDetails []string) {
@@ -71,9 +70,4 @@ func displayUsers(db *sql.DB) {
 		row.Scan(&id, &email, &username, &password)
 		log.Printf("User: %v, %v, %v, %v", id, email, username, password)
 	}
-}
-
-func HashPassword(password string) (string, error) {
-	hash, err := bcrypt.GenerateFromPassword([]byte(password), 14)
-	return string(hash), err
 }
