@@ -4,6 +4,7 @@ import "net/http"
 
 func Server() {
 	http.Handle("/index.css", http.FileServer(http.Dir("../static")))
+	http.Handle("/index.js", http.FileServer(http.Dir("../static")))
 	fileServer := http.FileServer(http.Dir("../static/img"))
 	http.Handle("/img/", http.StripPrefix("/img", fileServer))
 	http.HandleFunc("/", HandleDefault)
