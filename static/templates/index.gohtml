@@ -22,7 +22,7 @@
                 <a href="#"><div><img src="/img/random.svg"></div>Random</a>
             </section>
             <section class="nav2">
-                <a href="#" class="authenticated-section {{.Authenticated}}"><div><img src="/img/share.svg"></div>Share</a>
+                <a href="#"><div><img src="/img/share.svg"></div>Share</a>
                 <a href="#" class="authenticated-section {{.Authenticated}}"><div><img src="/img/log-out.svg"></div>Logout</a>
             </section>
         </nav>
@@ -171,7 +171,7 @@
             </div>
         </main>
         <section class="news">
-            <div class="user-status"><div><img src="/img/log-out.svg"></div>Log-in / Sign up</div>
+            <div class="user-status" onclick="showForm(event)"><div><img src="/img/log-out.svg"></div>Log-in / Sign up</div>
             <div class="staff-members">
                 <h2><div><img src="/img/members-online.svg"></div>Staff Members</h2>
                 <ul class="member-list">
@@ -308,7 +308,7 @@
                 <input type="password" name="password" placeholder="Password" minlength="8" required>
                 <input type="submit">
             </form>
-            <form action="/sign-up" method="POST" onsubmit="compare_input(event);">
+            <form action="/sign-up" method="POST" onsubmit="compareInput(event)">
                 <h1>Sign up today!</h1>
                 <input type="email" name="email" placeholder="Email Address" required>
                 <input type="text" name="username" placeholder="Username" maxlength="15" minlength="8" required>
@@ -318,8 +318,9 @@
             </form>
         </section>
         <section class="posts">
-            Posts Section
-            <div>Post
+            <button class="authenticated-section {{.Authenticated}}">Create New Post</button>
+            <div>
+                <div>Post Title</div>
                 <div>Username</div>
                 <div>Post text</div>
                 <div>Likes</div>

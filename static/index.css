@@ -567,7 +567,7 @@ h2 div {
   background: #555; 
 }
 .login {
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   flex-direction: column;
@@ -609,10 +609,19 @@ h2 div {
   color: white;
 }
 .posts {
+  display: none;
   position: absolute;
-  width: 20vw;
-  height: 30vh;
-  background: black;
+  width: 48vw;
+  height: 60vh;
+  background: #152028;
+  margin-left: 19.2vw;
+  margin-top: 8vh;
+  padding: 2vh 2vw;
+}
+.posts div {
+  border-radius: 1vh;
+  background: #23323e;
+  padding: 1vh 1vw;
 }
 .authenticated-section {
   display: none;
@@ -622,4 +631,7 @@ h2 div {
 }
 .navigation section a.authenticated-section{
   display: none;
+}
+.show-login {
+  display: flex;
 }
