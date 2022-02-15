@@ -8,7 +8,7 @@ import (
 	_ "github.com/mattn/go-sqlite3" // Import go-sqlite3 library
 )
 
-func RegisterUser(userDetails []string) {
+func RegisterUser(userDetails []string) bool {
 	if _, err := os.Stat("./forum-database.db"); err != nil {
 		file, err := os.Create("./forum-database.db") // Create SQLite file
 		if err != nil {
@@ -23,8 +23,9 @@ func RegisterUser(userDetails []string) {
 	defer forumDatabase.Close()
 	encryptedPassword, _ := HashPassword(userDetails[2])
 	createUserTable(forumDatabase)
-	insertNewUser(forumDatabase, userDetails[0], userDetails[1], encryptedPassword)
+	result := insertNewUser(forumDatabase, userDetails[0], userDetails[1], encryptedPassword)
 	displayUsers(forumDatabase)
+	return result
 }
 
 func createUserTable(db *sql.DB) {
@@ -43,7 +44,7 @@ func createUserTable(db *sql.DB) {
 	statement.Exec()
 }
 
-func insertNewUser(db *sql.DB, email string, userName string, password string) {
+func insertNewUser(db *sql.DB, email string, userName string, password string) bool {
 	insertNewUserSQL := `INSERT INTO user (email, username, password) VALUES (?, ?, ?)`
 	statement, err := db.Prepare(insertNewUserSQL)
 	// Prepares statement to avoid SQL injection
@@ -53,7 +54,9 @@ func insertNewUser(db *sql.DB, email string, userName string, password string) {
 	_, err = statement.Exec(email, userName, password)
 	if err != nil {
 		log.Println(err.Error())
+		return false
 	}
+	return true
 }
 
 func displayUsers(db *sql.DB) {

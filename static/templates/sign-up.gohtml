@@ -4,6 +4,10 @@
     </head>
     <body>
         <h1>Signing-up...</h1>
+        {{if .IsSuccessful}}
         <h4>Log-in after being redirected to the home page</h4>
+        {{else}}
+        <h4>Email or username already exist, please choose other</h4>
+        {{end}}
     </body>
 </html>
