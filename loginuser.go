@@ -29,19 +29,6 @@ func LoginUser(userData []string, sessionToken string) bool {
 		log.Println("Username or password incorrect!")
 		return false
 	}
-	// switch err {
-	// case sql.ErrNoRows:
-	// 	log.Println("Username or password incorrect!")
-	// 	return false
-	// case nil:
-	// 	log.Println("Logged in succesfully: ", userName, password)
-	// 	log.Println("hi")
-	// 	CreateSession(userName, sessionToken)
-	// 	return true
-	// default:
-	// 	log.Println(err.Error())
-	// 	return false
-	// }
 
 	// displayUsers(forumDatabase)
 }
