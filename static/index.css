@@ -624,7 +624,7 @@ h2 div {
   padding: 1vh 1vw;
 }
 .authenticated-section {
-  display: none;
+  visibility: hidden;
 }
 .authenticated {
   display: block;
