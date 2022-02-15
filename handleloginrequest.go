@@ -7,7 +7,9 @@ import (
 
 	uuid "github.com/satori/go.uuid"
 )
-
+type LoginSuccess struct {
+	IsSuccessful bool
+}
 func HandleLoginRequest(w http.ResponseWriter, r *http.Request) {
 	r.ParseForm()
 	if len(r.Form) == 0 { // if the form contains no length or is a valid ascii character, 400 error
@@ -19,14 +21,16 @@ func HandleLoginRequest(w http.ResponseWriter, r *http.Request) {
 		var userData = []string{userName, password}
 		sessionToken := uuid.NewV4().String()
 		authenticated := LoginUser(userData, sessionToken)
+		var loggedIn LoginSuccess
+		loggedIn.IsSuccessful = false
 		if authenticated {
 			http.SetCookie(w, &http.Cookie{
 				Name:    "session_token",
 				Value:   userName + "-" + sessionToken,
 				Expires: time.Now().Add(30 * time.Minute),
 			})
-			
+			loggedIn.IsSuccessful = true
 		}
-		tpl.Execute(w, nil)
+		tpl.Execute(w, loggedIn)
 	}
 }

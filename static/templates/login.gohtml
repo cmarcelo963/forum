@@ -4,6 +4,10 @@
     </head>
     <body>
         <h1>Authenticating...</h1>
-        <h4>If username/password are correct you will have full user rights!</h4>
+        {{if .IsSuccessful}}
+        <h4>You have full user rights!</h4>
+        {{else}}
+        <h4>Username or password incorrect</h4>
+        {{end}}
     </body>
 </html>
