@@ -1,5 +1,5 @@
 
-function compareInput(e){
+function comparePasswords(e){
     let first = document.getElementById('first-password').value;
     let second = document.getElementById('second-password').value;
         if (first !== second) {
@@ -12,4 +12,13 @@ function showForm(e){
     let login = document.getElementsByClassName('login')[0];
     login.classList.add('show-login');
     userStatus.classList.add('authenticated-section');
+}
+function hideForms(e) {
+    let login = document.getElementsByClassName('login')[0];
+    login.classList.remove('show-login');
+    let userStatus = document.getElementsByClassName('user-status')[0];
+    userStatus.classList.remove('authenticated-section');
+}
+function keepVisibleOnClick(e) {
+    e.stopPropagation();
 }

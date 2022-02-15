@@ -301,14 +301,14 @@
                 </div>
             </div>
         </section>
-        <section class="login">
-            <form action="/login" method="POST">
+        <section class="login" onclick="hideForms(event)">
+            <form class="authentication-form" action="/login" method="POST" onclick="keepVisibleOnClick(event)">
                 <h1>Log-In</h1>
                 <input type="text" name="username" placeholder="Username" maxlength="15" required>
                 <input type="password" name="password" placeholder="Password" minlength="8" required>
                 <input type="submit">
             </form>
-            <form action="/sign-up" method="POST" onsubmit="compareInput(event)">
+            <form class="authentication-form" action="/sign-up" method="POST" onsubmit="comparePasswords(event)" onclick="keepVisibleOnClick(event)">
                 <h1>Sign up today!</h1>
                 <input type="email" name="email" placeholder="Email Address" required>
                 <input type="text" name="username" placeholder="Username" maxlength="15" minlength="8" required>
