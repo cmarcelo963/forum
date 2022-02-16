@@ -33,7 +33,6 @@ func HandleDefault(w http.ResponseWriter, r *http.Request) {
 		userSession.Authenticated = "authenticated"
 		userSession.AuthenticatedHide = "authenticatedhide"
 	}
-	log.Println(c, "hi")
 	tpl.Execute(w, userSession)
 	// getLastSessionToken(c.Value)
 	// log.Println("Session token: ", c.Value)
