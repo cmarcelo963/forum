@@ -611,12 +611,10 @@ h2 div {
 .posts {
   display: none;
   position: absolute;
-  width: 48vw;
+  width: 42vw;
   height: 60vh;
   background: #152028;
-  margin-left: 19.2vw;
-  margin-top: 8vh;
-  padding: 2vh 2vw;
+  padding: 1vh 0;
 }
 .posts div {
   border-radius: 1vh;
