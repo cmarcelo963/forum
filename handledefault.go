@@ -2,13 +2,12 @@ package forum
 
 import (
 	"fmt"
-	"log"
 	"net/http"
 	"text/template"
 )
 
 type Auth struct {
-	Authenticated string
+	Authenticated     string
 	AuthenticatedHide string
 }
 
@@ -34,6 +33,4 @@ func HandleDefault(w http.ResponseWriter, r *http.Request) {
 		userSession.AuthenticatedHide = "authenticatedhide"
 	}
 	tpl.Execute(w, userSession)
-	// getLastSessionToken(c.Value)
-	// log.Println("Session token: ", c.Value)
 }
