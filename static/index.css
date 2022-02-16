@@ -626,11 +626,11 @@ h2 div {
 .authenticated-section {
   display: flex;
 }
-.authenticated {
-  display: flex;
-}
 .authenticatedhide {
   display: none;
+}
+.authenticated {
+  display: flex;
 }
 .navigation section a.authenticated-section{
   display: none;
