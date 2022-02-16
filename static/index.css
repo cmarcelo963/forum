@@ -624,10 +624,13 @@ h2 div {
   padding: 1vh 1vw;
 }
 .authenticated-section {
-  visibility: hidden;
+  display: flex;
 }
 .authenticated {
-  display: block;
+  display: flex;
+}
+.authenticatedhide {
+  display: none;
 }
 .navigation section a.authenticated-section{
   display: none;
