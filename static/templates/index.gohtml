@@ -187,6 +187,15 @@
                     </form>
                 </div>
             </section>
+            <section class="create-post" onclick="hideForms(event)">
+                <form class="create-post-form" action="/login" method="POST" onclick="keepVisibleOnClick(event)">
+                    <h1>Create Post</h1>
+                    <input type="text" name="title" placeholder="Post Title" required>
+                    <textarea name="content" placeholder="Type text here! :)" required></textarea>
+                    <input type="category" name="category" placeholder="Categories separated by space" required>
+                    <input type="submit">
+                </form>
+            </section>
         </main>
         <section class="news">
             <div class="user-status authenticated-section {{.AuthenticatedHide}}" onclick="showForm(event)"><div><img src="/img/log-out.svg"></div>Log-in / Sign up</div>

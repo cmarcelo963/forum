@@ -636,3 +636,47 @@ h2 div {
 .show-login {
   display: flex;
 }
+.create-post {
+  top: 0;
+  left: 0;
+  display: flex;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: rgba(31, 45, 55, 0.8);
+  height: 100vh;
+  width: 100vw;
+}
+.create-post-form {
+  display: flex;
+  flex-direction: column;
+  width: 80vw;
+  height: 80vh;
+  background-color: hsl(205deg 31% 12%);
+  flex-direction: column;
+  padding: 1vh;
+  justify-content: space-around;
+  align-items: center;
+  box-shadow: rgba(96, 96, 99, 0.25) 0px 50px 100px -20px, rgba(73, 71, 71, 0.3) 0px 30px 60px -30px, rgba(44, 44, 44, 0.35) 0px -2px 6px 0px inset;
+  border-radius: 1vh;
+  font-size: 2vh;
+  z-index: 1;
+}
+.create-post-form input {
+  border: 1px solid hsl(205, 27.9%, 16.9%);
+  border-radius: 1vh;
+  width: 70vw;
+  text-align: left;
+  padding: 1vh 1vw;
+}
+.create-post-form textarea {
+  width: 72vw;
+  height: 45vh;
+  padding: 1vh 1vw;
+  border-radius: 1vh;
+}
+.create-post-form input[type="submit"] {
+  width: 13vw;
+  text-align: center;
+}
