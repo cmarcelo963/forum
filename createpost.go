@@ -10,10 +10,10 @@ func createPostTable(db *sql.DB) {
 		CREATE TABLE IF NOT EXISTS post(
 		"post_id" integer NOT NULL PRIMARY KEY AUTOINCREMENT,
 		"title" TEXT UNIQUE,
-		"body" TEXT,
+		"content" TEXT,
 		"username" TEXT,
 		"created_date" DATETIME,
-		"category" TEXT
+		"categories" TEXT
 	 );
 	 `
 	statement, err := db.Prepare(createPostTableSQL)
