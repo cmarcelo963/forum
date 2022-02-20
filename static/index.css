@@ -639,7 +639,7 @@ h2 div {
 .create-post {
   top: 0;
   left: 0;
-  display: flex;
+  display: none;
   position: absolute;
   align-items: center;
   justify-content: center;
@@ -679,4 +679,7 @@ h2 div {
 .create-post-form input[type="submit"] {
   width: 13vw;
   text-align: center;
+}
+.user-status.authenticatedhide.authenticated {
+  font-size: 3vh;
 }
