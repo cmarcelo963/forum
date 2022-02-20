@@ -186,7 +186,23 @@
                     <h1>Create Post</h1>
                     <input type="text" name="title" placeholder="Post Title" required>
                     <textarea name="content" placeholder="Type text here! :)" required></textarea>
-                    <input type="category" name="category" placeholder="Categories separated by space" required>
+                    <div>
+                        <input type="checkbox" name="gaming">
+                        <label for="gaming">Gaming</label>
+                        <input type="checkbox" name="coding">
+                        <label for="coding">Coding</label>
+                        <input type="checkbox" name="movies">
+                        <label for="movies">Movies</label>
+                        <input type="checkbox" name="tutorials">
+                        <label for="tutorials">Tutorials</label>
+                        <input type="checkbox" name="tv/series">
+                        <label for="tv/series">TV/Series</label>
+                        <input type="checkbox" name="food">
+                        <label for="food">Food</label>
+                        <input type="checkbox" name="random">
+                        <label for="random">Random</label>
+                    </div>
+                    {{/* <input type="category" name="category" placeholder="Categories separated by space" required> */}}
                     <input type="submit">
                 </form>
             </section>
