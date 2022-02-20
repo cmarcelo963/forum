@@ -15,7 +15,7 @@ dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
+figure, figcaption, footer, form, header, hgroup, 
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
 	margin: 0;
@@ -359,23 +359,36 @@ h2 div {
   display: flex;
   justify-content: space-between;
   padding: 1vh 0;
+  margin: 0;
+  border:0;
+  font: inherit;
+}
+.filter-container .filter-button {
+  width: 5vh;
+  height: 5vh;
+  display: flex;
+  align-items: center;
+  padding: 1vh;
+  border: 2px #202e39 solid;
+  border-radius: 1vh;
 }
 .filter-categories {
   display: flex;
   font-weight: bold;
 }
 .filter-categories div {
-  border: 0.1vw solid #202e39;
   border-radius: 1vh;
   margin-right: 1vw;
-  padding: 1vh 1.5vw;
 }
 .filter-img {
   border: 0.1vw solid #202e39;
   border-radius: 1vh;
   padding: 1vh;
-  height: 4vh;
-  width: 4vh;
+  position: absolute;
+  height: 2.5vh;
+  width: 2.5vh;
+  transform: translateX(-1.1vh);
+  
 }
 .filter-img img {
   width: 100%;
@@ -707,4 +720,15 @@ label span {
   align-items: center;
   border-radius: 1vh;
   font-size: 2vh;
+}
+.filter-categories div {
+  display: flex;
+}
+.filter-categories div:first-of-type {
+  width: 40vw;
+  overflow-x: scroll;
+  justify-content: space-between;
+  gap: 1vw;
+  height: fit-content;
+  
 }
