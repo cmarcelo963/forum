@@ -15,7 +15,14 @@ func HandleNewPostRequest(w http.ResponseWriter, r *http.Request) {
 	r.ParseForm()
 	newPostTitle := r.Form["title"][0]
 	newPostContent := r.Form["content"][0]
-	newPostCategories := r.Form["category"][0]
+	newPostCategories := ""
+	for index, field := range r.Form {
+		if field[0] == "on" {
+			log.Println(field, index)
+			newPostCategories += index + ","
+			log.Println(newPostCategories)
+		}
+	}
 
 	forumDatabase, err := sql.Open("sqlite3", "./forum-database.db")
 	if err != nil {
