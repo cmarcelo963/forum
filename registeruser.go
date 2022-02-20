@@ -22,7 +22,7 @@ func RegisterUser(userDetails []string) bool {
 	}
 	defer forumDatabase.Close()
 	encryptedPassword, _ := HashPassword(userDetails[2])
-	createUserTable(forumDatabase)
+	createUserTable(forumDatabase) //Creates user database if it doesn't exists already. 
 	result := insertNewUser(forumDatabase, userDetails[0], userDetails[1], encryptedPassword)
 	displayUsers(forumDatabase)
 	return result

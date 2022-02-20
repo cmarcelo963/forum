@@ -27,3 +27,5 @@ Steps:
             bb. Validate data
             cc. Connect with database - match user if password
             dd. Send template with active session - cookies
+
+            

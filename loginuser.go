@@ -21,6 +21,7 @@ func LoginUser(userData []string, sessionToken string) bool {
 	log.Println("password: ", userData[1])
 	log.Println("Hashed Password: ", password)
 
+	//Checks whether the password the user inputted and the one saved in the database matches
 	if checkPwdMatch {
 		log.Println("Logged in succesfully: ", userName, password)
 		CreateSession(userName, sessionToken)

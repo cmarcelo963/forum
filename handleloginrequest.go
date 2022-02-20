@@ -10,6 +10,7 @@ import (
 type LoginSuccess struct {
 	IsSuccessful bool
 }
+
 func HandleLoginRequest(w http.ResponseWriter, r *http.Request) {
 	r.ParseForm()
 	if len(r.Form) == 0 { // if the form contains no length or is a valid ascii character, 400 error
@@ -20,6 +21,8 @@ func HandleLoginRequest(w http.ResponseWriter, r *http.Request) {
 		password := r.Form["password"][0]
 		var userData = []string{userName, password}
 		sessionToken := uuid.NewV4().String()
+		//Checks if credentials entered by the user matches one from the database
+		//Saved as a value of bool to indicate if the login is authorised and successful
 		authenticated := LoginUser(userData, sessionToken)
 		var loggedIn LoginSuccess
 		loggedIn.IsSuccessful = false
