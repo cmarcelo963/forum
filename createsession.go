@@ -8,6 +8,7 @@ import (
 )
 
 func CreateSession(userName string, sessionToken string) {
+	//Keeps track of user sessions
 	forumDatabase, err := sql.Open("sqlite3", "./forum-database.db")
 	if err != nil {
 		log.Println(err.Error())
@@ -17,6 +18,7 @@ func CreateSession(userName string, sessionToken string) {
 	insertNewSession(forumDatabase, userName, sessionToken)
 }
 func createSessionCacheTable(db *sql.DB) {
+	//Creates a new table for session cache if one does not exist
 	createSessionSQL := `
 		CREATE TABLE IF NOT EXISTS session_cache(
 		"id" integer NOT NULL PRIMARY KEY AUTOINCREMENT,

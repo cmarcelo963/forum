@@ -2,6 +2,8 @@ package forum
 
 import "net/http"
 
+
+//This runs the server sends whatever information we want to show the user
 func Server() {
 	http.Handle("/index.css", http.FileServer(http.Dir("../static")))
 	http.Handle("/index.js", http.FileServer(http.Dir("../static")))
