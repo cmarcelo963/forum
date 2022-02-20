@@ -661,7 +661,7 @@ h2 div {
   z-index: 1;
 }
 .create-post-form input {
-  border: 1px solid hsl(205, 27.9%, 16.9%);
+  border: 2px solid hsl(205, 27.9%, 16.9%);
   border-radius: 1vh;
   width: 70vw;
   text-align: left;
@@ -682,4 +682,29 @@ h2 div {
 }
 .show-login, .show-post-form {
   display: flex;
+}
+.create-post-form div {
+  display: flex;
+  justify-content: space-evenly;
+  width: 72vw;
+}
+input[type=checkbox] {
+  display: none;
+}
+label :checked + span {
+  background: hsl(209deg 100% 50%);
+  color: white;
+}
+
+label span {
+  display: flex;
+  justify-content: center;
+  background: #152028;
+  height: 4vh;
+  width: 9vw;
+  text-align: center;
+  border: 2px solid #202e39;
+  align-items: center;
+  border-radius: 1vh;
+  font-size: 2vh;
 }
