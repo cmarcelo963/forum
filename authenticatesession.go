@@ -6,8 +6,8 @@ import (
 	"strings"
 )
 
+//Checks whether the user is currently logged in somewhere else to prevent double log-in
 func AuthenticateSession(cookieValue string) bool {
-	//Checks whether the user is currently logged in somewhere else to prevent double log-in
 	splitCookie := strings.SplitN(cookieValue, "-", 2)
 
 	forumDatabase, err := sql.Open("sqlite3", "./forum-database.db")

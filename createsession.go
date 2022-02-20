@@ -7,8 +7,8 @@ import (
 	_ "github.com/mattn/go-sqlite3"
 )
 
+//Keeps track of user sessions
 func CreateSession(userName string, sessionToken string) {
-	//Keeps track of user sessions
 	forumDatabase, err := sql.Open("sqlite3", "./forum-database.db")
 	if err != nil {
 		log.Println(err.Error())

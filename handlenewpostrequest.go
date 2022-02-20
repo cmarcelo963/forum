@@ -10,9 +10,9 @@ import (
 	_ "github.com/mattn/go-sqlite3"
 )
 
+//Store specific information from that post that was received
 func HandleNewPostRequest(w http.ResponseWriter, r *http.Request) {
 	r.ParseForm()
-	//Store specific information from that post that was received
 	newPostTitle := r.Form["title"][0]
 	newPostContent := r.Form["content"][0]
 	newPostCategories := r.Form["category"][0]
@@ -23,7 +23,7 @@ func HandleNewPostRequest(w http.ResponseWriter, r *http.Request) {
 	}
 	defer forumDatabase.Close()
 	createPostTable(forumDatabase)
-	//I changed the err into '_' to remove the orange error as it states that it isn't being used
+	//I changed the err into '_' to remove the orange error as it states that it isn't being used - cmarcelo963
 	tpl, _ := template.ParseFiles("../static/templates/index.gohtml")
 	c, err := r.Cookie("session_token")
 	if err != nil {
@@ -37,9 +37,9 @@ func HandleNewPostRequest(w http.ResponseWriter, r *http.Request) {
 	}
 	username := strings.SplitN(c.Value, "-", 2)[0]
 
-	//Adds relevant information of the new post into the database
 	insertNewPost(forumDatabase, username, newPostTitle, newPostContent, newPostCategories)
 }
+//Adds relevant information of the new post into the database
 func insertNewPost(db *sql.DB, username string, title string, content string, categories string) {
 	insertNewPostSQL := `INSERT INTO post (username, title, created_date, content, categories) VALUES (?, ?, CURRENT_TIMESTAMP, ?, ?)`
 	statement, err := db.Prepare(insertNewPostSQL)
