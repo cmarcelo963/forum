@@ -22,3 +22,12 @@ function hideForms(e) {
 function keepVisibleOnClick(e) {
     e.stopPropagation();
 }
+function showPostForm(e) {
+    let userStatus = document.getElementsByClassName("user-status")[0];
+    let postForm = document.getElementsByClassName("create-post")[0];
+    postForm.classList.add("show-post-form");
+}
+function hidePostForm(e) {
+    let postForm = document.getElementsByClassName("create-post")[0];
+    postForm.classList.remove("show-post-form");
+}

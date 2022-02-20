@@ -180,14 +180,8 @@
                     <button class="authenticated-section {{.Authenticated}}">Like</button>
                     <button class="authenticated-section {{.Authenticated}}">Comment</button>
                 </div>
-                <div class="authenticated-section {{.Authenticated}}">User correctly authenticated!
-                    <button>Create new post</button>
-                    <form action="new-post" method="POST">
-                        <input type="submit" value="Send">
-                    </form>
-                </div>
             </section>
-            <section class="create-post" onclick="hideForms(event)">
+            <section class="create-post" onclick="hidePostForm(event)">
                 <form class="create-post-form" action="new-post" method="POST" onclick="keepVisibleOnClick(event)">
                     <h1>Create Post</h1>
                     <input type="text" name="title" placeholder="Post Title" required>
@@ -199,7 +193,7 @@
         </main>
         <section class="news">
             <div class="user-status authenticated-section {{.AuthenticatedHide}}" onclick="showForm(event)"><div><img src="/img/log-out.svg"></div>Log-in / Sign up</div>
-            <div class="user-status authenticatedhide {{.Authenticated}}">+</div>
+            <div class="user-status authenticatedhide {{.Authenticated}}" onclick="showPostForm(event)">+</div>
             <div class="staff-members">
                 <h2><div><img src="/img/members-online.svg"></div>Staff Members</h2>
                 <ul class="member-list">

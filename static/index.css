@@ -633,9 +633,6 @@ h2 div {
 .navigation section a.authenticated-section{
   display: none;
 }
-.show-login {
-  display: flex;
-}
 .create-post {
   top: 0;
   left: 0;
@@ -682,4 +679,7 @@ h2 div {
 }
 .user-status.authenticatedhide.authenticated {
   font-size: 3vh;
+}
+.show-login, .show-post-form {
+  display: flex;
 }
