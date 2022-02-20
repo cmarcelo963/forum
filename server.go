@@ -13,5 +13,6 @@ func Server() {
 	http.HandleFunc("/sign-up", HandleSignUpRequest)
 	http.HandleFunc("/login", HandleLoginRequest)
 	http.HandleFunc("/new-post", HandleNewPostRequest)
+	http.HandleFunc("/filter-posts", HandleFilterRequest)
 	http.ListenAndServe(":8080", nil)
 }
