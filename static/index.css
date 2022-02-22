@@ -630,7 +630,7 @@ h2 div {
   padding: 1vh 0;
 }
 .post {
-  display: none;
+  display: flex;
   flex-direction: column;
   align-items: baseline;
   width: 42vw;
@@ -638,7 +638,7 @@ h2 div {
   height: -moz-fit-content;
   border-radius: 1vh;
   background: #23323e;
-  padding: 4vh 2vw;
+  padding: 3vh 2vw;
 }
 .post-user {
   padding: 1vh 0;
@@ -653,6 +653,7 @@ h2 div {
 }
 .post h1{
   font-size: large;
+  font-weight: bold;
 }
 .post-content {
   text-align: justify;
@@ -670,8 +671,8 @@ h2 div {
   align-items: center;
 }
 .like-img {
-  height: 5vh;
-  width: 5vh;
+  height: 4vh;
+  width: 4vh;
   padding: 1vh;
   border-radius: 1vh;
 }
@@ -778,5 +779,27 @@ label span {
   justify-content: space-between;
   gap: 1vw;
   height: fit-content;
-  
+}
+.post-creation-details {
+  flex-direction: column;
+  padding-left: 1vw;
+  align-items: baseline;
+  justify-content: space-between;
+}
+.post-creation-details p {
+  color: hsl(205deg 15% 68%);
+  overflow-wrap: break-word;
+}
+.post-user-icon {
+  border: 1px solid #7b8892;
+  display: flex;
+  align-items: center;
+  width: 4vh;
+  height: 4vh;
+  padding: 1vh;
+  border-radius: 1vh;
+}
+.post-user-icon img {
+  width: 100%;
+  height: 100%;
 }
