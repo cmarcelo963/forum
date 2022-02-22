@@ -773,7 +773,7 @@ label span {
   display: flex;
 }
 .filter-categories div:first-of-type {
-  width: 40vw;
+  width: 38vw;
   overflow-x: scroll;
   justify-content: space-between;
   gap: 1vw;
