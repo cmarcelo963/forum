@@ -201,15 +201,29 @@
                 </section>
             </div>
             <section class="posts">
-                <button class="authenticated-section {{.Authenticated}}">Create New Post</button>
-                <div>
-                    <div>Post Title</div>
-                    <div>Username</div>
-                    <div>Post text</div>
-                    <div>Likes</div>
-                    <div>Comments</div>
-                    <button class="authenticated-section {{.Authenticated}}">Like</button>
-                    <button class="authenticated-section {{.Authenticated}}">Comment</button>
+                <div class="post">
+                    <h1>Post Title</h1>
+                    <div class="post-user">
+                        <div>
+                            <div>
+                                <div class="member"><div><img src="/img/staff-member.svg"></div></div>                              
+                            </div>
+                            <div class="member-stats">
+                                <h2>Christian Marcelo</h2>
+                                <p>Date of Creation</p>
+                            </div>
+                        </div>
+                        <div>Categories</div>
+                    </div>
+                    <div class="post-content">Aliqua do magna enim cillum aliqua amet voluptate enim nostrud. Ex proident dolor magna cillum eu aliquip. Sint veniam pariatur Lorem ipsum deserunt nostrud eu esse culpa magna enim voluptate proident do. Tempor reprehenderit sint pariatur id exercitation dolor id sunt. Duis excepteur tempor consectetur cupidatat. Est incididunt reprehenderit ipsum elit.</div>
+                    <div class="post-footer">
+                        <div class="likes">
+                            <div class="like-img"><img src="/img/like.svg"></div>
+                            <div>1000</div>
+                            <div class="like-img"><img src="/img/like.svg"></div>
+                        </div>
+                        <div>Comment</div>
+                    </div>
                 </div>
             </section>
             <section class="create-post" onclick="hidePostForm(event)">
