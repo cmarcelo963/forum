@@ -9,7 +9,9 @@ import (
 type Auth struct {
 	Authenticated     string
 	AuthenticatedHide string
+	Posts []Post
 }
+var UserSession Auth
 
 func HandleDefault(w http.ResponseWriter, r *http.Request) {
 	tpl, err := template.ParseFiles("../static/templates/index.gohtml")
@@ -19,7 +21,7 @@ func HandleDefault(w http.ResponseWriter, r *http.Request) {
 	c, err := r.Cookie("session_token")
 	if err != nil {
 		if err == http.ErrNoCookie {
-			tpl.Execute(w, nil)
+			tpl.Execute(w, UserSession)
 			return
 		}
 		// For any other type of error, return a bad request status
@@ -27,10 +29,9 @@ func HandleDefault(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	var userSession Auth
 	if AuthenticateSession(c.Value) {
-		userSession.Authenticated = "authenticated"
-		userSession.AuthenticatedHide = "authenticatedhide"
+		UserSession.Authenticated = "authenticated"
+		UserSession.AuthenticatedHide = "authenticatedhide"
 	}
-	tpl.Execute(w, userSession)
+	tpl.Execute(w, UserSession)
 }

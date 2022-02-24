@@ -201,7 +201,37 @@
                 </section>
             </div>
             <section class="posts">
-                <div class="post">
+                    {{/* TODO Fix styling, hide other elements */}}
+                    {{if .Posts}}
+                        {{range $post := .Posts}}
+                            <div class="post">
+                                <h1>{{$post.Title}}</h1>
+                                <div class="post-user">
+                                    <div>
+                                        <div>
+                                            <div class="post-user-icon"><div><img src="/img/staff-member.svg"></div></div>                              
+                                        </div>
+                                        <div class="post-creation-details">
+                                            <h2>{{$post.Username}}</h2>
+                                            <p>{{$post.Date}}</p>
+                                        </div>
+                                    </div>
+                                    <div>Categories</div>
+                                </div>
+                                <div class="post-content">{{$post.Content}}</div>
+                                <div class="post-footer">
+                                    <div class="likes">
+                                        <div class="like-img"><img src="/img/like.svg"></div>
+                                        <div>1000</div>
+                                        <div class="like-img"><img src="/img/like.svg"></div>
+                                    </div>
+                                    <div>Comment</div>
+                                </div>
+                            </div>
+                        {{end}}
+                    {{else}}
+                    {{end}}
+                {{/* <div class="post">
                     <h1>Post Title</h1>
                     <div class="post-user">
                         <div>
@@ -224,7 +254,7 @@
                         </div>
                         <div>Comment</div>
                     </div>
-                </div>
+                </div> */}}
             </section>
             <section class="create-post" onclick="hidePostForm(event)">
                 <form class="create-post-form" action="new-post" method="POST" onclick="keepVisibleOnClick(event)">
