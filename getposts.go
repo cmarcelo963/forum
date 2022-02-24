@@ -12,7 +12,7 @@ type Post struct {
 	Date string
 	Categories string
 }
-func GetPosts(category string) {
+func GetPosts(category string) []Post {
 	forumDatabase, err := sql.Open("sqlite3", "./forum-database.db")
 	if err != nil {
 		log.Println(err.Error())
@@ -34,9 +34,9 @@ func GetPosts(category string) {
 		}
 		filteredPosts = append(filteredPosts, p)
 	}
-
 	if err != nil {
 		log.Println(err.Error())
 	}
 	log.Println("THIS >", filteredPosts, category)
+	return filteredPosts
 }
