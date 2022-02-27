@@ -629,6 +629,7 @@ h2 div {
   background: #152028;
   padding: 1vh 0;
   flex-direction: column;
+  gap: 1vh;
 }
 .post {
   display: flex;
