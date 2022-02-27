@@ -5,15 +5,17 @@ import (
 	"log"
 	"strings"
 )
+
 type Post struct {
-	PostId string
-	Title string
-	Content string
-	Username string
-	Date string
-	Categories string
+	PostId          string
+	Title           string
+	Content         string
+	Username        string
+	Date            string
+	Categories      string
 	SplitCategories []string
 }
+
 func GetPosts(category string) []Post {
 	forumDatabase, err := sql.Open("sqlite3", "./forum-database.db")
 	if err != nil {
@@ -30,15 +32,18 @@ func GetPosts(category string) []Post {
 	var filteredPosts []Post
 	for filteredPostsRows.Next() {
 		var p Post
-		err := filteredPostsRows.Scan(&p.PostId, &p.Title, &p.Content,&p.Username, &p.Date, &p.Categories)
+		err := filteredPostsRows.Scan(&p.PostId, &p.Title, &p.Content, &p.Username, &p.Date, &p.Categories)
 		if err != nil {
 			log.Println(err.Error())
 			break
 		}
 		splitCategories := strings.Split(p.Categories, ",")
-		for _, category := range splitCategories {
+		for index, category := range splitCategories {
+			if index == len(splitCategories)-1 {
+				break
+			}
 			p.SplitCategories = append(p.SplitCategories, category)
-		}		
+		}
 		filteredPosts = append(filteredPosts, p)
 	}
 	if err != nil {
@@ -47,4 +52,3 @@ func GetPosts(category string) []Post {
 	log.Println("THIS >", filteredPosts, category)
 	return filteredPosts
 }
-

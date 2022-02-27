@@ -788,7 +788,6 @@ label span {
   flex-direction: column;
   padding-left: 1vw;
   align-items: baseline;
-  justify-content: space-between;
 }
 .post-creation-details p {
   color: hsl(205deg 15% 68%);
@@ -809,4 +808,16 @@ label span {
 }
 .hide {
   display: none;
+}
+.post-user-categories {
+  width: 17vw;
+  flex-wrap: wrap;
+}
+.post-user-category {
+  border: 2px solid #152028;
+  border-radius: 1vh;
+  padding: 0.4vh 0.5vw;
+}
+.post-creation-details h2 {
+  padding-bottom: 0.9vh;
 }
