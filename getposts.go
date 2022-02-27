@@ -3,6 +3,7 @@ package forum
 import (
 	"database/sql"
 	"log"
+	"strings"
 )
 type Post struct {
 	PostId string
@@ -11,6 +12,7 @@ type Post struct {
 	Username string
 	Date string
 	Categories string
+	SplitCategories []string
 }
 func GetPosts(category string) []Post {
 	forumDatabase, err := sql.Open("sqlite3", "./forum-database.db")
@@ -28,10 +30,15 @@ func GetPosts(category string) []Post {
 	var filteredPosts []Post
 	for filteredPostsRows.Next() {
 		var p Post
-		if err := filteredPostsRows.Scan(&p.PostId, &p.Title, &p.Content,&p.Username, &p.Date, &p.Categories); err != nil {
+		err := filteredPostsRows.Scan(&p.PostId, &p.Title, &p.Content,&p.Username, &p.Date, &p.Categories)
+		if err != nil {
 			log.Println(err.Error())
 			break
 		}
+		splitCategories := strings.Split(p.Categories, ",")
+		for _, category := range splitCategories {
+			p.SplitCategories = append(p.SplitCategories, category)
+		}		
 		filteredPosts = append(filteredPosts, p)
 	}
 	if err != nil {
@@ -40,3 +47,4 @@ func GetPosts(category string) []Post {
 	log.Println("THIS >", filteredPosts, category)
 	return filteredPosts
 }
+
