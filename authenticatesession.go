@@ -23,6 +23,7 @@ func AuthenticateSession(cookieValue string) bool {
 	var username string
 	row.Scan(&id, &username, &sessionToken)
 	checkPwdMatch := splitCookie[1] == sessionToken
+	log.Println(checkPwdMatch)
 	if checkPwdMatch {
 		return true
 	} else {

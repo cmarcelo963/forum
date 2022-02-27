@@ -9,8 +9,9 @@ import (
 type Auth struct {
 	Authenticated     string
 	AuthenticatedHide string
-	Posts []Post
+	Posts             []Post
 }
+
 var UserSession Auth
 
 func HandleDefault(w http.ResponseWriter, r *http.Request) {
@@ -28,10 +29,12 @@ func HandleDefault(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusBadRequest)
 		return
 	}
-
 	if AuthenticateSession(c.Value) {
 		UserSession.Authenticated = "authenticated"
 		UserSession.AuthenticatedHide = "authenticatedhide"
+	} else {
+		UserSession.Authenticated = ""
+		UserSession.AuthenticatedHide = ""
 	}
 	tpl.Execute(w, UserSession)
 }
