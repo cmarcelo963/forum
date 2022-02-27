@@ -211,7 +211,9 @@
                                             <p>{{$post.Date}}</p>
                                         </div>
                                     </div>
-                                    <div>Categories</div>
+                                    {{range $category := .SplitCategories}}
+                                        <div>{{$category}}</div>
+                                    {{end}}                                    
                                 </div>
                                 <div class="post-content">{{$post.Content}}</div>
                                 <div class="post-footer">
