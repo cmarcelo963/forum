@@ -34,7 +34,7 @@
                 </div>
             </div>
             <div class="route"><span>●</span>Home > Community Forum</div>
-            <div class="main-content">
+            <div class="main-content {{if .Posts}}hide{{end}}">
                 <section class="announcement">
                     <div class="announcement-inner">
                         <div>
@@ -201,7 +201,7 @@
                 </section>
             </div>
             <section class="posts">
-                    {{/* TODO Fix styling, hide other elements */}}
+                    {{/* TODO hide other elements */}}
                     {{if .Posts}}
                         {{range $post := .Posts}}
                             <div class="post">
