@@ -196,7 +196,7 @@
                     </ul>
                 </section>
             </div>
-            <section class="posts">
+            <section class="posts {{if .Posts}}{{else}}hide{{end}}">
                     {{if .Posts}}
                         {{range $post := .Posts}}
                             <div class="post">
