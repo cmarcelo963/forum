@@ -1,16 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <link rel="icon" type="image/svg" href="/img/logo.svg" />
-        <link rel="stylesheet" href="index.css">
-        <script src="index.js"></script>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>CEK Forum</title>
-    </head>
-    <body class="container">
-        <nav class="navigation">
+{{define "navigation"}}
+    <nav class="navigation">
             <div class="logo"><div><img src="/img/logo.svg"></div>cekforum<span>&#9679</span></div>
             <section class="nav1">
                 <div class="nav-vertical-line">
@@ -26,28 +15,34 @@
                 <a href="#" class="authenticated-section {{.Authenticated}}"><div><img src="/img/log-out.svg"></div>Logout</a>
             </section>
         </nav>
-        <main class="main">
-            <div class="search-bar">
+{{end}}
+{{define "search-bar"}}
+    <div class="search-bar">
                 <div class="search-container">
                     <div><img src="/img/search.svg"></div>
                     <input type="search" id="searchf" name="searchf" placeholder="Search forums...">
                 </div>
+    </div>
+{{end}}
+{{define "route"}}
+    <div class="route"><span>●</span>Home > Community Forum</div>
+{{end}}
+{{define "announcement"}}
+    <section class="announcement">
+        <div class="announcement-inner">
+            <div>
+                <h2 class="title-announcement">Join us for a discussion!</h2>
+                <p>
+                    Join us now and talk about weird topics and interests.
+                </p>
+                </div>
+                <button>Get Started</button>
             </div>
-            <div class="route"><span>●</span>Home > Community Forum</div>
-            <div class="main-content {{if .Posts}}hide{{end}}">
-                <section class="announcement">
-                    <div class="announcement-inner">
-                        <div>
-                            <h2 class="title-announcement">Join us for a discussion!</h2>
-                            <p>
-                            Join us now and talk about weird topics and interests.
-                            </p>
-                        </div>
-                        <button>Get Started</button>
-                    </div>
-                    <div class="img-announcement"><img src="/img/calendar.svg"></div>
-                </section>
-                <section class="categories">
+        <div class="img-announcement"><img src="/img/calendar.svg"></div>
+    </section>
+{{end}}
+{{define "categories"}}
+    <section class="categories">
                     <h2><div><img src="/img/forum.svg"></div>Community forums</h2>
                     <form class="filter-container" action="/filter-posts">
                         <div class="filter-categories">
@@ -195,43 +190,47 @@
                         </li>
                     </ul>
                 </section>
-            </div>
-            <section class="posts {{if .Posts}}{{else}}hide{{end}}">
-                    {{if .Posts}}
-                        {{range $post := .Posts}}
-                            <div class="post">
-                                <h1>{{$post.Title}}</h1>
-                                <div class="post-user">
-                                    <div>
-                                        <div>
-                                            <div class="post-user-icon"><div><img src="/img/staff-member.svg"></div></div>                              
-                                        </div>
-                                        <div class="post-creation-details">
-                                            <h2>{{$post.Username}}</h2>
-                                            <p>{{$post.Date}}</p>
-                                        </div>
-                                    </div>
-                                    <div class="post-user-categories">
-                                        {{range $category := .SplitCategories}}
-                                                <div class="post-user-category">{{$category}}</div>
-                                        {{end}}
-                                    </div>                                    
-                                </div>
-                                <div class="post-content">{{$post.Content}}</div>
-                                <div class="post-footer">
-                                    <div class="likes">
-                                        <div class="like-img"><img src="/img/like.svg"></div>
-                                        <div>1000</div>
-                                        <div class="like-img"><img src="/img/like.svg"></div>
-                                    </div>
-                                    <div>Comment</div>
-                                </div>
+{{end}}
+{{define "posts"}}
+    <section class="posts {{if .Posts}}Y{{else}}hide{{end}}">
+        {{if .Posts}}
+            {{range $post := .Posts}}
+                <div class="post">
+                    <h1>{{$post.Title}}</h1>
+                    <div class="post-user">
+                        <div>
+                            <div>
+                                <div class="post-user-icon"><div><img src="/img/staff-member.svg"></div></div>                              
                             </div>
-                        {{end}}
-                    {{else}}
-                    {{end}}
-            </section>
-            <section class="create-post" onclick="hidePostForm(event)">
+                            <div class="post-creation-details">
+                                <h2>{{$post.Username}}</h2>
+                                <p>{{$post.Date}}</p>
+                            </div>
+                        </div>
+                        <div class="post-user-categories">
+                            {{range $category := .SplitCategories}}
+                                <div class="post-user-category">{{$category}}</div>
+                            {{end}}
+                        </div>                                    
+                    </div>
+                    <div class="post-content">{{$post.Content}}</div>
+                    <div class="post-footer">
+                        <div class="likes">
+                            <div class="like-img"><img src="/img/like.svg"></div>
+                            <div>1000</div>
+                            <div class="like-img"><img src="/img/like.svg"></div>
+                        </div>
+                        <div>Comment</div>
+                    </div>
+                </div>
+            {{end}}
+        {{else}}
+        Y
+        {{end}}
+    </section>
+{{end}}
+{{define "create-post"}}
+    <section class="create-post" onclick="hidePostForm(event)">
                 <form class="create-post-form" action="new-post" method="POST" onclick="keepVisibleOnClick(event)">
                     <h1>Create Post</h1>
                     <input type="text" name="title" placeholder="Post Title" required>
@@ -269,11 +268,9 @@
                     <input type="submit">
                 </form>
             </section>
-        </main>
-        <section class="news">
-            <div class="user-status authenticated-section {{.AuthenticatedHide}}" onclick="showForm(event)"><div><img src="/img/log-out.svg"></div>Log-in / Sign up</div>
-            <div class="user-status authenticatedhide {{.Authenticated}}" onclick="showPostForm(event)">+</div>
-            <div class="staff-members">
+{{end}}
+{{define "staff-members"}}
+    <div class="staff-members">
                 <h2><div><img src="/img/members-online.svg"></div>Staff Members</h2>
                 <ul class="member-list">
                     <li>
@@ -305,7 +302,9 @@
                     </li>
                 </ul>
             </div>
-            <div class="staff-members">
+{{end}}
+{{define "recent-threads"}}
+    <div class="staff-members">
                 <h2><div><img src="/img/members-online.svg"></div>Recent Threads</h2>
                 <ul class="member-list">
                     <li>
@@ -337,11 +336,9 @@
                     </li>
                 </ul>
             </div>
-            <div>
-
-            </div>
-        </section>
-        <section class="stat">
+{{end}}
+{{define "stat"}}
+    <section class="stat">
             <h2><div><img src="/img/statistic.svg"></div>Statistics</h2>
             <div class="stat-boxes">
                 <div class="stat-box current-statistic">
@@ -402,21 +399,63 @@
                 </div>
             </div>
         </section>
-        <section class="login" onclick="hideForms(event)">
-            <form class="authentication-form" action="/login" method="POST" onclick="keepVisibleOnClick(event)">
-                <h1>Log-In</h1>
-                <input type="text" name="username" placeholder="Username" maxlength="15" required>
-                <input type="password" name="password" placeholder="Password" minlength="8" required>
-                <input type="submit">
-            </form>
-            <form class="authentication-form" action="/sign-up" method="POST" onsubmit="comparePasswords(event)" onclick="keepVisibleOnClick(event)">
-                <h1>Sign up today!</h1>
-                <input type="email" name="email" placeholder="Email Address" required>
-                <input type="text" name="username" placeholder="Username" maxlength="15" minlength="8" required>
-                <input type="password" id="first-password" name="password" placeholder="Password" required>
-                <input type="password" id="second-password" placeholder="Confirm Password" required>
-                <input type="submit">
-            </form>
+{{end}}
+{{define "login"}}
+    <section class="login-page" onclick="hideForms(event)" >
+            <div class="login-signup-form" onclick="keepVisibleOnClick(event)">
+                <input type="checkbox" id="chk">
+                <div class="signup">
+                    <form class="authentication-form" action="/sign-up" method="POST" onsubmit="comparePasswords(event)" >
+                        <label>Sign up!</label>
+                        <input type="email" name="email" placeholder="Email Address" required>
+                        <input type="text" name="username" placeholder="Username" maxlength="15" minlength="8" required>
+                        <input type="password" id="first-password" name="password" placeholder="Password" required>
+                        <input type="password" id="second-password" placeholder="Confirm Password" required>
+                        <input type="submit">
+                    </form>
+                </div>
+                <div class="login">
+                    <form class="authentication-form" action="/login" method="POST" >
+                        <label for="chk" class="label"  aria-hidden="true">Login</label>
+                        <input type="text" name="username" placeholder="Username" maxlength="15" required>
+                        <input type="password" name="password" placeholder="Password" minlength="8" required>
+                        <input type="submit">
+                    </form>
+                </div>
+            </div>
         </section>
+{{end}}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="icon" type="image/svg" href="/img/logo.svg" />
+        <link rel="stylesheet" href="index.css">
+        <script src="index.js"></script>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>CEK Forum</title>
+    </head>
+    <body class="container">
+        {{template "navigation"}}
+        <main class="main">
+            {{template "search-bar"}}
+            {{template "route"}}
+            <div class="main-content {{if .Posts}}hide{{end}}">
+                {{template "announcement"}}
+                {{template "categories"}}
+            </div>
+            {{template "posts" .}}
+            {{template "create-post"}}
+        </main>
+        <section class="news">
+            <div class="user-status authenticated-section {{.AuthenticatedHide}}" onclick="showForm(event)"><div><img src="/img/log-out.svg"></div>Log-in / Sign up</div>
+            <div class="user-status authenticatedhide {{.Authenticated}}" onclick="showPostForm(event)">+</div>
+            {{template "staff-members"}}
+            {{template "recent-threads"}}
+        </section>
+        {{template "stat"}}
+        {{template "login"}}
     </body>
 </html>

@@ -9,12 +9,12 @@ function comparePasswords(e){
 }
 function showForm(e){
     let userStatus = document.getElementsByClassName('user-status')[0];
-    let login = document.getElementsByClassName('login')[0];
+    let login = document.getElementsByClassName('login-page')[0];
     login.classList.add('show-login');
     userStatus.classList.add('authenticated-section');
 }
 function hideForms(e) {
-    let login = document.getElementsByClassName('login')[0];
+    let login = document.getElementsByClassName('login-page')[0];
     login.classList.remove('show-login');
     let userStatus = document.getElementsByClassName('user-status')[0];
     userStatus.classList.remove('authenticated-section');

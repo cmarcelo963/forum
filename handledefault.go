@@ -22,6 +22,8 @@ func HandleDefault(w http.ResponseWriter, r *http.Request) {
 	c, err := r.Cookie("session_token")
 	if err != nil {
 		if err == http.ErrNoCookie {
+			UserSession.Authenticated = ""
+			UserSession.AuthenticatedHide = ""
 			tpl.Execute(w, UserSession)
 			return
 		}
