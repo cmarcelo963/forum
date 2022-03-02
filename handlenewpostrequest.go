@@ -60,7 +60,6 @@ func insertNewPost(db *sql.DB, username string, title string, content string, ca
 		log.Println(err.Error())
 		return false
 	}
-
 	_, err = statement.Exec(username, title, content, categories)
 	if err != nil {
 		log.Println(err.Error())

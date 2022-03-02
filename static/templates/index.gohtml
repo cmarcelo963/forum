@@ -269,6 +269,36 @@
                 </form>
             </section>
 {{end}}
+{{define "selected-post"}}
+    <div class="post selected-post">
+        <h1>{{.SelectedPost.Title}}</h1>
+        <div class="post-user">
+            <div>
+                <div>
+                    <div class="post-user-icon"><div><img src="/img/staff-member.svg"></div></div>                              
+                </div>
+                <div class="post-creation-details">
+                    <h2>{{.SelectedPost.Username}}</h2>
+                    <p>{{.SelectedPost.Date}}</p>
+                </div>
+            </div>
+            <div class="post-user-categories">
+                {{range $category := .SelectedPost.SplitCategories}}
+                    <div class="post-user-category">{{$category}}</div>
+                {{end}}
+            </div>                                    
+        </div>
+        <div class="post-content">{{.SelectedPost.Content}}</div>
+        <div class="post-footer">
+            <div class="likes">
+                <div class="like-img"><img src="/img/like.svg"></div>
+                <div>1000</div>
+                <div class="like-img"><img src="/img/like.svg"></div>
+            </div>
+            <div>Comment</div>
+        </div>
+    </div>
+{{end}}
 {{define "staff-members"}}
     <div class="staff-members">
                 <h2><div><img src="/img/members-online.svg"></div>Staff Members</h2>

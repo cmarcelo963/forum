@@ -886,3 +886,6 @@ label span {
 	outline: none;
 	border-radius: 5px;
 }
+.selected-post {
+  display: none;
+}

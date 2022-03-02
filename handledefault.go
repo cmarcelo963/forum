@@ -10,6 +10,7 @@ type Auth struct {
 	Authenticated     string
 	AuthenticatedHide string
 	Posts             []Post
+	SelectedPost      Post
 }
 
 var UserSession Auth
