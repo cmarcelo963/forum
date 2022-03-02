@@ -604,9 +604,11 @@ h2 div {
 .login-signup-form {
   height: 51vh;
   overflow: hidden;
+  border-radius: 2vh;
 }
 .login-signup-form div {
   border-radius: 1vh;
+  border-bottom-right-radius: 10vh;
 }
 .signup {
   height: 40vh;
