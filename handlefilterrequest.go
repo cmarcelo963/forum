@@ -20,10 +20,8 @@ func HandleFilterRequest(w http.ResponseWriter, r *http.Request) {
 		for _, post := range filteredPosts {
 			UserSession.Posts = append(UserSession.Posts, post)
 		}
-		//&UserSession.Posts = GetPosts(category)
-		tpl, _ := template.ParseFiles("../static/templates/login.gohtml")
+		tpl, _ := template.ParseFiles("../static/templates/index.gohtml")
 		log.Println("kamal", UserSession)
 		tpl.Execute(w, UserSession)
-		//http.Redirect(w, r, "http://localhost:8080/", http.StatusSeeOther)
 	}
 }
