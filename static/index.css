@@ -887,5 +887,5 @@ label span {
 	border-radius: 5px;
 }
 .selected-post {
-  display: none;
+  display: flex;
 }

@@ -49,6 +49,7 @@ func HandleNewPostRequest(w http.ResponseWriter, r *http.Request) {
 	var postSuccess PostSuccess
 	postSuccess.IsSuccessful = insertNewPost(forumDatabase, username, newPostTitle, newPostContent, newPostCategories)
 	tpl, _ = template.ParseFiles("../static/templates/create-post.gohtml")
+	UserSession.SelectedPost = GetPost("", username)
 	tpl.Execute(w, postSuccess)
 }
 //Adds relevant information of the new post into the database

@@ -472,11 +472,15 @@
         <main class="main">
             {{template "search-bar"}}
             {{template "route"}}
-            <div class="main-content {{if .Posts}}hide{{end}}">
+            <div class="main-content {{if .Posts}}hide{{else if .SelectedPost.Title}}hide{{end}}">
                 {{template "announcement"}}
                 {{template "categories"}}
             </div>
-            {{template "posts" .}}
+            {{if .SelectedPost}}
+                {{template "selected-post" .}}
+            {{else}}
+                {{template "posts" .}}
+            {{end}}
             {{template "create-post"}}
         </main>
         <section class="news">
