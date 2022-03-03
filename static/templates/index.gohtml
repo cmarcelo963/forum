@@ -192,7 +192,7 @@
                 </section>
 {{end}}
 {{define "posts"}}
-    <section class="posts {{if .Posts}}Y{{else}}hide{{end}}">
+    <section class="posts {{if .Posts}}{{else}}hide{{end}}">
         {{if .Posts}}
             {{range $post := .Posts}}
                 <div class="post">
@@ -476,9 +476,9 @@
                 {{template "announcement"}}
                 {{template "categories"}}
             </div>
-            {{if .SelectedPost}}
+            {{if .SelectedPost.Content}}
                 {{template "selected-post" .}}
-            {{else}}
+            {{else if .Posts}}
                 {{template "posts" .}}
             {{end}}
             {{template "create-post"}}
