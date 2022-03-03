@@ -854,6 +854,7 @@ label span {
   width: 17vw;
   flex-wrap: wrap;
   gap: 0.5vh;
+  flex-direction: row-reverse;
 }
 .post-user-category, .more-button {
   border-radius: 1vh;
