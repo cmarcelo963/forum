@@ -15,5 +15,6 @@ func Server() {
 	http.HandleFunc("/new-post", HandleNewPostRequest)
 	http.HandleFunc("/filter-posts", HandleFilterRequest)
 	http.HandleFunc("/select-post", HandleSelectPost)
+	http.HandleFunc("/new-comment", HandleNewCommentRequest)
 	http.ListenAndServe(":8080", nil)
 }

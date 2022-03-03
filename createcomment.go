@@ -12,7 +12,7 @@ func createCommentTable(db *sql.DB) {
 		"post_id" integer,
 		"content" TEXT,
 		"username" TEXT,
-		"created_date" DATETIME,
+		"created_date" DATETIME
 	 );
 	 `
 	statement, err := db.Prepare(createCommentTableSQL)

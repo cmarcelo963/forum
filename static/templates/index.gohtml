@@ -276,8 +276,8 @@
 {{define "create-comment"}}
     <section class="create-comment" onclick="hideCommentForm(event)">
         <form class="create-comment-form" action="new-comment" method="POST" onclick="keepVisibleOnClick(event)">
-            <h1>Create Comment For:</h1>
-            <label name="title">{{.SelectedPost.Title}}</label>
+            <h1>Create Comment For {{.SelectedPost.Title}}</h1>
+            <input class="hide" type="text" name="title" value="{{.SelectedPost.Title}}">
             <textarea name="content" placeholder="Type Comment here! :)" required></textarea>
             <input type="submit">
         </form>
