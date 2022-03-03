@@ -11,6 +11,7 @@ type Auth struct {
 	AuthenticatedHide string
 	Posts             []Post
 	SelectedPost      Post
+	Comments 		  []Comment
 }
 
 var UserSession Auth

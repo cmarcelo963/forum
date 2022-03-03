@@ -13,6 +13,11 @@ func HandleSelectPost(w http.ResponseWriter, r *http.Request) {
 	username := r.Form["username"][0]
 	date = strings.Join(strings.Split(strings.Join(strings.Split(date, "T"), " "), "Z"), "")
 	post := GetPost(date, username)
+	comments := GetComments(post.PostId)
+	for _, comment := range comments {
+		UserSession.Comments = append(UserSession.Comments, comment)
+	}
+	log.Println("COMMENTS:", UserSession.Comments)
 	UserSession.SelectedPost = post
 	tpl, err := template.ParseFiles("../static/templates/index.gohtml")
 	if err != nil {
