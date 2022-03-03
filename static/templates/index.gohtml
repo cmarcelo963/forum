@@ -313,8 +313,30 @@
             <div class="more-button authenticatedhide {{.Authenticated}}" onclick="showCommentForm(event)">Comment</div>
         </div>
     </div>
+    {{range $comment := .Comments}}
+        <div class="post selected-post">
+        <div class="post-user">
+            <div>
+                <div>
+                    <div class="post-user-icon"><div><img src="/img/staff-member.svg"></div></div>                              
+                </div>
+                <div class="post-creation-details">
+                    <h2>{{$comment.Username}}</h2>
+                    <p>{{$comment.Date}}</p>
+                </div>
+            </div>                                   
+        </div>
+        <div class="post-content">{{$comment.Content}}</div>
+        <div class="post-footer">
+            <div class="likes">
+                <div class="like-img"><img src="/img/like.svg"></div>
+                <div>1000</div>
+                <div class="like-img"><img src="/img/like.svg"></div>
+            </div>
+        </div>
+    </div>
+    {{end}}
 <section>
-{{template "create-comment" .}}  
 {{end}}
 {{define "staff-members"}}
     <div class="staff-members">
