@@ -235,43 +235,53 @@
 {{end}}
 {{define "create-post"}}
     <section class="create-post" onclick="hidePostForm(event)">
-                <form class="create-post-form" action="new-post" method="POST" onclick="keepVisibleOnClick(event)">
-                    <h1>Create Post</h1>
-                    <input type="text" name="title" placeholder="Post Title" required>
-                    <textarea name="content" placeholder="Type text here! :)" required></textarea>
-                    <div>
-                        <label>
-                            <input id="gaming" type="checkbox" name="gaming">
-                            <span>Gaming</span>
-                        </label>
-                        <label>
-                            <input type="checkbox" name="coding">
-                            <span>Coding</span>
-                        </label>
-                        <label>
-                            <input type="checkbox" name="movies">
-                            <span>Movies</span>
-                        </label>
-                        <label>
-                            <input type="checkbox" name="tutorials">
-                            <span>Tutorials</span>
-                        </label>
-                        <label>
-                            <input type="checkbox" name="tv/series">
-                            <span>TV/Series</span>
-                        </label>
-                        <label>
-                            <input type="checkbox" name="food">
-                            <span>Food</span>
-                        </label>
-                        <label>
-                            <input type="checkbox" name="random">
-                            <span>Random</span>
-                        </label>
-                    </div>
-                    <input type="submit">
-                </form>
-            </section>
+        <form class="create-post-form" action="new-post" method="POST" onclick="keepVisibleOnClick(event)">
+            <h1>Create Post</h1>
+            <input type="text" name="title" placeholder="Post Title" required>
+            <textarea name="content" placeholder="Type text here! :)" required></textarea>
+            <div>
+                <label>
+                    <input id="gaming" type="checkbox" name="gaming">
+                    <span>Gaming</span>
+                </label>
+                <label>
+                    <input type="checkbox" name="coding">
+                    <span>Coding</span>
+                </label>
+                <label>
+                    <input type="checkbox" name="movies">
+                    <span>Movies</span>
+                </label>
+                <label>
+                    <input type="checkbox" name="tutorials">
+                    <span>Tutorials</span>
+                </label>
+                <label>
+                    <input type="checkbox" name="tv/series">
+                    <span>TV/Series</span>
+                </label>
+                <label>
+                    <input type="checkbox" name="food">
+                    <span>Food</span>
+                </label>
+                <label>
+                    <input type="checkbox" name="random">
+                    <span>Random</span>
+                </label>
+            </div>
+            <input type="submit">
+        </form>
+    </section>
+{{end}}
+{{define "create-comment"}}
+    <section class="create-comment" onclick="hideCommentForm(event)">
+        <form class="create-comment-form" action="new-comment" method="POST" onclick="keepVisibleOnClick(event)">
+            <h1>Create Comment For:</h1>
+            <label name="title">{{.SelectedPost.Title}}</label>
+            <textarea name="content" placeholder="Type Comment here! :)" required></textarea>
+            <input type="submit">
+        </form>
+    </section>
 {{end}}
 {{define "selected-post"}}
 <section class="post-section">
@@ -300,10 +310,11 @@
                 <div>1000</div>
                 <div class="like-img"><img src="/img/like.svg"></div>
             </div>
-            <div class="more-button">Comment</div>
+            <div class="more-button authenticatedhide {{.Authenticated}}" onclick="showCommentForm(event)">Comment</div>
         </div>
     </div>
-<section>    
+<section>
+{{template "create-comment" .}}  
 {{end}}
 {{define "staff-members"}}
     <div class="staff-members">

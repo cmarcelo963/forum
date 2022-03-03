@@ -31,3 +31,11 @@ function hidePostForm(e) {
     let postForm = document.getElementsByClassName("create-post")[0];
     postForm.classList.remove("show-post-form");
 }
+function showCommentForm(e) {
+    let postForm = document.getElementsByClassName("create-comment")[0];
+    postForm.classList.add("show-post-form");
+}
+function hideCommentForm(e) {
+    let postForm = document.getElementsByClassName("create-comment")[0];
+    postForm.classList.remove("show-post-form");
+}
