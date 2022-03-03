@@ -313,7 +313,6 @@ h2 div {
   padding-right: 1vw;
 }
 .category-list .category-img {
-  background-color: #0084ff;
   width: 4vh;
   height: 4vh;
   padding: 1vh;
@@ -331,7 +330,7 @@ h2 div {
 .category-list .tutorials-colour {
   background-color: hsl(22deg 85% 56%);
 }
-.category-list .television-colour {
+.category-list .tv\/series-colour {
   background-color: hsl(86deg 70% 41%);
 }
 .category-list .food-colour {
@@ -692,7 +691,7 @@ h2 div {
   border-radius: 1vh;
   display: flex;
   justify-content: space-between;
-  width: 38vw;
+  width: 37vw;
 }
 .post-user div {
   display: flex;
@@ -709,7 +708,7 @@ h2 div {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 38vw;
+  width: 37vw;
   margin-top: 2vh;
 }
 .likes {
@@ -855,10 +854,13 @@ label span {
   width: 17vw;
   flex-wrap: wrap;
 }
-.post-user-category {
-  border: 2px solid #152028;
+.post-user-category, .comment-button {
   border-radius: 1vh;
   padding: 0.4vh 0.5vw;
+  align-items: center;
+  border: 1px solid #7b8892;
+  height: fit-content;
+  height: -moz-fit-content;
 }
 .post-creation-details h2 {
   padding-bottom: 0.9vh;
@@ -888,4 +890,16 @@ label span {
 }
 .selected-post {
   display: flex;
+}
+.post-section {
+  display: flex;
+  position: absolute;
+  top: 9vh;
+  width: 42vw;
+  background: #152028;
+  padding: 1vh 0;
+  flex-direction: column;
+  gap: 1vh;
+  height: 60vh;
+  overflow-y: scroll;
 }

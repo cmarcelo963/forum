@@ -145,7 +145,7 @@
                         </li>
                         <li>
                             <div>
-                               <div class="category-img television-colour"><div><img src="/img/television.svg"></div></div>Television                               
+                               <div class="category-img tv/series-colour"><div><img src="/img/television.svg"></div></div>Television                               
                             </div>
                             <div>
                                 <div class="category-stats">
@@ -220,7 +220,7 @@
                             <div>1000</div>
                             <div class="like-img"><img src="/img/like.svg"></div>
                         </div>
-                        <div>Comment</div>
+                        <div class="comment-button">Comment</div>
                     </div>
                 </div>
             {{end}}
@@ -270,6 +270,7 @@
             </section>
 {{end}}
 {{define "selected-post"}}
+<section class="post-section">
     <div class="post selected-post">
         <h1>{{.SelectedPost.Title}}</h1>
         <div class="post-user">
@@ -295,9 +296,10 @@
                 <div>1000</div>
                 <div class="like-img"><img src="/img/like.svg"></div>
             </div>
-            <div>Comment</div>
+            <div class="comment-button">Comment</div>
         </div>
     </div>
+<section>    
 {{end}}
 {{define "staff-members"}}
     <div class="staff-members">
