@@ -318,25 +318,25 @@ h2 div {
   padding: 1vh;
   border-radius: 1vh;
 }
-.category-list .gaming-colour {
+.gaming-colour {
   background-color: #0084ff;
 }
-.category-list .coding-colour {
+.coding-colour {
   background-color: hsl(86deg 70% 41%);
 }
-.category-list .movies-colour {
+.movies-colour {
   background-color: hsl(252deg 79% 65%);
 }
-.category-list .tutorials-colour {
+.tutorials-colour {
   background-color: hsl(22deg 85% 56%);
 }
-.category-list .tv\/series-colour {
+.tv\/series-colour {
   background-color: hsl(86deg 70% 41%);
 }
-.category-list .food-colour {
+.food-colour {
   background-color: hsl(209deg 100% 50%);
 }
-.category-list .random-colour {
+.random-colour {
   background-color: hsl(252deg 79% 65%);
 }
 .category-img {
@@ -853,14 +853,17 @@ label span {
 .post-user-categories {
   width: 17vw;
   flex-wrap: wrap;
+  gap: 0.5vh;
 }
-.post-user-category, .comment-button {
+.post-user-category, .more-button {
   border-radius: 1vh;
   padding: 0.4vh 0.5vw;
   align-items: center;
-  border: 1px solid #7b8892;
   height: fit-content;
   height: -moz-fit-content;
+}
+.more-button {
+  background: hsl(29deg 94% 48%);
 }
 .post-creation-details h2 {
   padding-bottom: 0.9vh;
@@ -893,7 +896,6 @@ label span {
 }
 .post-section {
   display: flex;
-  position: absolute;
   top: 9vh;
   width: 42vw;
   background: #152028;

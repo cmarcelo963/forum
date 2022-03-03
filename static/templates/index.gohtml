@@ -209,7 +209,7 @@
                         </div>
                         <div class="post-user-categories">
                             {{range $category := .SplitCategories}}
-                                <div class="post-user-category">{{$category}}</div>
+                                <div class="post-user-category {{$category}}-colour">{{$category}}</div>
                             {{end}}
                         </div>                                    
                     </div>
@@ -220,7 +220,11 @@
                             <div>1000</div>
                             <div class="like-img"><img src="/img/like.svg"></div>
                         </div>
-                        <div class="comment-button">Comment</div>
+                        <form action="/select-post" method="POST">
+                            <input type="text" name="username" value="{{$post.Username}}">
+                            <input type="text" name="date" value="{{$post.Date}}">
+                            <input type="submit" class="more-button" value="Show More...">
+                        </form>
                     </div>
                 </div>
             {{end}}
@@ -285,7 +289,7 @@
             </div>
             <div class="post-user-categories">
                 {{range $category := .SelectedPost.SplitCategories}}
-                    <div class="post-user-category">{{$category}}</div>
+                    <div class="post-user-category {{$category}}-colour">{{$category}}</div>
                 {{end}}
             </div>                                    
         </div>
@@ -296,7 +300,7 @@
                 <div>1000</div>
                 <div class="like-img"><img src="/img/like.svg"></div>
             </div>
-            <div class="comment-button">Comment</div>
+            <div class="more-button">Comment</div>
         </div>
     </div>
 <section>    
