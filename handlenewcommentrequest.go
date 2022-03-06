@@ -14,7 +14,7 @@ import (
 func HandleNewCommentRequest(w http.ResponseWriter, r *http.Request) {
 	r.ParseForm()
 	postTitle := r.Form["title"][0]
-	log.Println(postTitle)
+	log.Println("title: ", postTitle)
 	newCommentContent := r.Form["content"][0]
 	forumDatabase, err := sql.Open("sqlite3", "./forum-database.db")
 	if err != nil {
@@ -40,7 +40,8 @@ func HandleNewCommentRequest(w http.ResponseWriter, r *http.Request) {
 	insertNewComment(forumDatabase, postID, username, newCommentContent)
 	tpl, _ = template.ParseFiles("../static/templates/index.gohtml")
 	// UserSession.SelectedPost = GetPost("", username)
-	// tpl.Execute(w, postSuccess)
+	UserSession.Comments = GetComments(postID)
+	tpl.Execute(w, UserSession)
 }
 
 //Adds relevant information of the new post into the database
