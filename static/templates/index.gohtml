@@ -329,7 +329,7 @@
             <div class="more-button authenticatedhide {{.Authenticated}}" onclick="showCommentForm(event)">Comment</div>
         </div>
     </div>
-    {{range $comment := .Comments}}
+    {{range $index, $comment := .Comments}}
         <div class="post selected-post">
         <div class="post-user">
             <div>
@@ -345,9 +345,17 @@
         <div class="post-content">{{$comment.Content}}</div>
         <div class="post-footer">
             <div class="likes">
-                <div class="like-img"><img src="/img/like.svg"></div>
+                <form action="like" method="POST">
+                    <input class="hide" type="text" name="comment_id" value="{{$comment.CommentId}}">
+                    <input id="liked-submitc{{$index}}" class="hide" type="submit">
+                    <label for="liked-submitc{{$index}}" class="like-img"><img src="/img/like.svg"></label>
+                </form>
                 <div>1000</div>
-                <div class="like-img rotate180"><img src="/img/like.svg"></div>
+                <form action="dislike" method="POST">
+                    <input class="hide" type="text" name="comment_id" value="{{$comment.CommentId}}">
+                    <input id="disliked-submitc{{$index}}" class="hide" type="submit">
+                    <label for="disliked-submitc{{$index}}" class="like-img"><img class="rotate180" src="/img/like.svg"></label>
+                </form>
             </div>
         </div>
     </div>
