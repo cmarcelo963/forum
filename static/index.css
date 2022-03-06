@@ -716,6 +716,7 @@ h2 div {
   align-items: center;
 }
 .like-img {
+  display: block;
   height: 4vh;
   width: 4vh;
   padding: 1vh;
@@ -725,7 +726,7 @@ h2 div {
   height: 100%;
   width: 100%;
 }
-.like-img:last-of-type img {
+.rotate180 {
   transform: rotate(180deg);
 }
 .authenticated-section {

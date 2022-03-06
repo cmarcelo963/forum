@@ -216,9 +216,17 @@
                     <div class="post-content">{{$post.Content}}</div>
                     <div class="post-footer">
                         <div class="likes">
-                            <div class="like-img"><img src="/img/like.svg"></div>
+                            <form action="like" method="POST">
+                                <input class="hide" type="text" name="post_id" value="{{$post.PostId}}">
+                                <input id="liked-submit" class="hide" type="submit">
+                                <label for="liked-submit" class="like-img"><img src="/img/like.svg"></label>
+                            </form>
                             <div>1000</div>
-                            <div class="like-img"><img src="/img/like.svg"></div>
+                            <form action="dislike" method="POST">
+                                <input class="hide" type="text" name="post_id" value="{{$post.PostId}}">
+                                <input id="disliked-submit" class="hide" type="submit">
+                                <label for="disliked-submit" class="like-img"><img class="rotate180" src="/img/like.svg"></label>
+                            </form>
                         </div>
                         <form action="/select-post" method="POST">
                             <input class="hide" type="text" name="username" value="{{$post.Username}}">
@@ -306,9 +314,17 @@
         <div class="post-content">{{.SelectedPost.Content}}</div>
         <div class="post-footer">
             <div class="likes">
-                <div class="like-img"><img src="/img/like.svg"></div>
+                <form action="like" method="POST">
+                    <input class="hide" type="text" name="post_id" value="{{.SelectedPost.PostId}}">
+                    <input id="liked-submit" class="hide" type="submit">
+                    <label for="liked-submit" class="like-img"><img src="/img/like.svg"></label>
+                </form>
                 <div>1000</div>
-                <div class="like-img"><img src="/img/like.svg"></div>
+                <form action="dislike" method="POST">
+                    <input class="hide" type="text" name="post_id" value="{{.SelectedPost.PostId}}">
+                    <input id="disliked-submit" class="hide" type="submit">
+                    <label for="disliked-submit" class="like-img"><img class="rotate180" src="/img/like.svg"></label>
+                </form>
             </div>
             <div class="more-button authenticatedhide {{.Authenticated}}" onclick="showCommentForm(event)">Comment</div>
         </div>
