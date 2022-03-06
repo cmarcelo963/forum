@@ -9,8 +9,8 @@ func createLikeTable(db *sql.DB) {
 	createLikeTableSQL := `
 		CREATE TABLE IF NOT EXISTS like(
 		"like_id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-		"comment_id" INTEGER,
 		"post_id" INTEGER,
+		"comment_id" INTEGER,
 		"username" TEXT,
 		"like" BIT
 	 );
