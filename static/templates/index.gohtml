@@ -194,7 +194,7 @@
 {{define "posts"}}
     <section class="posts {{if .Posts}}{{else}}hide{{end}}">
         {{if .Posts}}
-            {{range $post := .Posts}}
+            {{range $index, $post := .Posts}}
                 <div class="post">
                     <h1>{{$post.Title}}</h1>
                     <div class="post-user">
@@ -218,14 +218,14 @@
                         <div class="likes">
                             <form action="like" method="POST">
                                 <input class="hide" type="text" name="post_id" value="{{$post.PostId}}">
-                                <input id="liked-submit" class="hide" type="submit">
-                                <label for="liked-submit" class="like-img"><img src="/img/like.svg"></label>
+                                <input id="liked-submit{{$index}}" class="hide" type="submit">
+                                <label for="liked-submit{{$index}}" class="like-img"><img src="/img/like.svg"></label>
                             </form>
                             <div>1000</div>
                             <form action="dislike" method="POST">
                                 <input class="hide" type="text" name="post_id" value="{{$post.PostId}}">
-                                <input id="disliked-submit" class="hide" type="submit">
-                                <label for="disliked-submit" class="like-img"><img class="rotate180" src="/img/like.svg"></label>
+                                <input id="disliked-submit{{$index}}" class="hide" type="submit">
+                                <label for="disliked-submit{{$index}}" class="like-img"><img class="rotate180" src="/img/like.svg"></label>
                             </form>
                         </div>
                         <form action="/select-post" method="POST">
