@@ -8,10 +8,11 @@ import (
 func createLikeTable(db *sql.DB) {
 	createLikeTableSQL := `
 		CREATE TABLE IF NOT EXISTS like(
-		"like_id" integer NOT NULL PRIMARY KEY AUTOINCREMENT,
-		"comment_id" integer,
-		"post_id" integer,
+		"like_id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+		"comment_id" INTEGER,
+		"post_id" INTEGER,
 		"username" TEXT,
+		"like" BIT
 	 );
 	 `
 	statement, err := db.Prepare(createLikeTableSQL)

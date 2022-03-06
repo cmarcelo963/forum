@@ -8,7 +8,7 @@ import (
 func createPostTable(db *sql.DB) {
 	createPostTableSQL := `
 		CREATE TABLE IF NOT EXISTS post(
-		"post_id" integer NOT NULL PRIMARY KEY AUTOINCREMENT,
+		"post_id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
 		"title" TEXT UNIQUE,
 		"content" TEXT,
 		"username" TEXT,
