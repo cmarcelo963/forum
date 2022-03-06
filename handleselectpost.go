@@ -14,6 +14,7 @@ func HandleSelectPost(w http.ResponseWriter, r *http.Request) {
 	date = strings.Join(strings.Split(strings.Join(strings.Split(date, "T"), " "), "Z"), "")
 	post := GetPost(date, username)
 	comments := GetComments(post.PostId)
+	UserSession.Comments = nil
 	for _, comment := range comments {
 		UserSession.Comments = append(UserSession.Comments, comment)
 	}
