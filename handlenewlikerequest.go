@@ -77,9 +77,9 @@ func likeExists(db * sql.DB, username string, post_id string) bool {
 	checkIfLikeExistSQL := "SELECT * FROM like WHERE username = ? AND post_id = ?"
 	err := db.QueryRow(checkIfLikeExistSQL, username, post_id).Scan(&potatoarmy)
 	if err == sql.ErrNoRows {
-		// if err != sql.ErrNoRows {
+		if err != sql.ErrNoRows {
 			log.Println(err)
-		// }
+		}
 		return false
 	}
 	return true
