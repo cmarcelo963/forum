@@ -350,7 +350,7 @@
                     <input id="liked-submitc{{$index}}" class="hide" type="submit">
                     <label for="liked-submitc{{$index}}" class="like-img"><img src="/img/like.svg"></label>
                 </form>
-                <div>1000</div>
+                <div>{{$comment.Likes}}</div>
                 <form action="dislike" method="POST">
                     <input class="hide" type="text" name="comment_id" value="{{$comment.CommentId}}">
                     <input id="disliked-submitc{{$index}}" class="hide" type="submit">

@@ -35,6 +35,7 @@ func GetComments(post_id string) []Comment {
 			break
 		}
 		log.Println("C > ", c)
+		c.Likes = GetLikes(c.CommentId, "comment")
 		comments = append(comments, c)
 	}
 	if err != nil {
