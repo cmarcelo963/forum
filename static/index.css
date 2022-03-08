@@ -210,10 +210,15 @@ section a div img {
   -webkit-mask-image: linear-gradient(to top, transparent, green), linear-gradient(to left, transparent 17px, green 17px);
   -webkit-mask-size: 100% 20000px;
   -webkit-mask-position: left bottom;
+  mask-image: linear-gradient(to top, transparent, green), linear-gradient(to left, transparent 17px, green 17px);
+  mask-size: 100% 20000px;
+  mask-position: left bottom;
   transition: mask-position 0.3s, -webkit-mask-position 0.3s;
 }
 .category-list:hover {
   -webkit-mask-position: left top;
+  mask-position: left top;
+
 }
 .category-list li{
   padding: 1vh 1.5vw;
