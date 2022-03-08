@@ -319,7 +319,7 @@
                     <input id="liked-submit" class="hide" type="submit">
                     <label for="liked-submit" class="like-img"><img src="/img/like.svg"></label>
                 </form>
-                <div>1000</div>
+                <div>{{.Likes}}</div>
                 <form action="dislike" method="POST">
                     <input class="hide" type="text" name="post_id" value="{{.SelectedPost.PostId}}">
                     <input id="disliked-submit" class="hide" type="submit">

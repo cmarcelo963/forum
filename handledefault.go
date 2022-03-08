@@ -13,6 +13,7 @@ type Auth struct {
 	Posts             []Post
 	SelectedPost      Post
 	Comments          []Comment
+	Likes             string
 }
 
 var UserSession Auth
