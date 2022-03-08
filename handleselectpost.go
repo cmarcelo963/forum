@@ -9,6 +9,11 @@ import (
 )
 
 func HandleSelectPost(w http.ResponseWriter, r *http.Request) {
+	tpl, err := template.ParseFiles("../static/templates/index.gohtml")
+	sessionState := CheckSessionCookie(w, r, tpl)
+	if sessionState == "no cookie" || sessionState == "bad request" {
+		return
+	}
 	r.ParseForm()
 	date := r.Form["date"][0]
 	username := r.Form["username"][0]
@@ -23,7 +28,6 @@ func HandleSelectPost(w http.ResponseWriter, r *http.Request) {
 	}
 	log.Println("COMMENTS:", UserSession.Comments)
 	UserSession.SelectedPost = post
-	tpl, err := template.ParseFiles("../static/templates/index.gohtml")
 	if err != nil {
 		log.Println(err.Error())
 	}

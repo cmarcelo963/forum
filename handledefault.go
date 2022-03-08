@@ -2,6 +2,7 @@ package forum
 
 import (
 	"fmt"
+	"log"
 	"net/http"
 	"text/template"
 )
@@ -25,24 +26,35 @@ func HandleDefault(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		fmt.Println(err)
 	}
-	c, err := r.Cookie("session_token")
+	sessionState := CheckSessionCookie(w, r, tpl)
+	if sessionState == "no cookie" || sessionState == "bad request" {
+		return
+	}
+	tpl.Execute(w, UserSession)
+}
+func CheckSessionCookie(w http.ResponseWriter,request *http.Request, template *template.Template) string {
+	c, err := request.Cookie("session_token")
 	if err != nil {
 		if err == http.ErrNoCookie {
 			UserSession.Authenticated = ""
 			UserSession.AuthenticatedHide = ""
-			tpl.Execute(w, UserSession)
-			return
+			template.Execute(w, UserSession)
+			return "no cookie"
 		}
 		// For any other type of error, return a bad request status
 		w.WriteHeader(http.StatusBadRequest)
-		return
+		return "bad request"
 	}
 	if AuthenticateSession(c.Value) {
 		UserSession.Authenticated = "authenticated"
 		UserSession.AuthenticatedHide = "authenticatedhide"
+		return "Valid cookie"
 	} else {
+		log.Println("Not authenticated")
 		UserSession.Authenticated = ""
 		UserSession.AuthenticatedHide = ""
+		UserSession.CreatedPosts = nil
+		UserSession.LikedPosts = nil
+		return "Invalid cookie"
 	}
-	tpl.Execute(w, UserSession)
 }

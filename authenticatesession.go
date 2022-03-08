@@ -17,7 +17,7 @@ func AuthenticateSession(cookieValue string) bool {
 	defer forumDatabase.Close()
 	loginSQL := `SELECT MAX(id),username, session_token FROM session_cache WHERE username = ? `
 	row := forumDatabase.QueryRow(loginSQL, splitCookie[0])
-	log.Println(row)
+	log.Println("authenticate row: ", row)
 	var sessionToken string
 	var id int
 	var username string
