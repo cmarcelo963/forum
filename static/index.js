@@ -1,4 +1,3 @@
-
 function comparePasswords(e){
     let first = document.getElementById('first-password').value;
     let second = document.getElementById('second-password').value;
@@ -38,4 +37,10 @@ function showCommentForm(e) {
 function hideCommentForm(e) {
     let postForm = document.getElementsByClassName("create-comment")[0];
     postForm.classList.remove("show-post-form");
+}
+function showUserProfile(e) {
+    let userProfile = document.getElementsByClassName("user-profile")[0];
+    userProfile.classList.remove("hide");
+    let mainContent = document.getElementsByClassName("main-content")[0];
+    mainContent.classList.add("hide");
 }

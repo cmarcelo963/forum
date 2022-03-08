@@ -519,7 +519,11 @@
             </div>
         </section>
 {{end}}
-
+{{define "user-profile"}}
+    <section class="user-profile hide">
+        User profile
+    </section>
+{{end}}
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -546,10 +550,14 @@
                 {{template "posts" .}}
             {{end}}
             {{template "create-post"}}
+            {{template "user-profile"}}
         </main>
         <section class="news">
             <div class="user-status authenticated-section {{.AuthenticatedHide}}" onclick="showForm(event)"><div><img src="/img/log-out.svg"></div>Log-in / Sign up</div>
-            <div class="user-status authenticatedhide {{.Authenticated}}" onclick="showPostForm(event)">+</div>
+            <div class="user-status authenticatedhide {{.Authenticated}}">
+                <span onclick="showPostForm(event)">+</span>
+                <span onclick="showUserProfile(event)">{{.User}}</span>
+            </div>
             {{template "staff-members"}}
             {{template "recent-threads"}}
         </section>

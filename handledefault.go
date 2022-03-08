@@ -9,9 +9,10 @@ import (
 type Auth struct {
 	Authenticated     string
 	AuthenticatedHide string
+	User              string
 	Posts             []Post
 	SelectedPost      Post
-	Comments 		  []Comment
+	Comments          []Comment
 }
 
 var UserSession Auth

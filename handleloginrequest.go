@@ -33,6 +33,7 @@ func HandleLoginRequest(w http.ResponseWriter, r *http.Request) {
 				Expires: time.Now().Add(30 * time.Minute),
 			})
 			loggedIn.IsSuccessful = true
+			UserSession.User = userName
 		}
 		tpl.Execute(w, loggedIn)
 	}
