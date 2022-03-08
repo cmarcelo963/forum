@@ -7,10 +7,11 @@ import (
 
 type Comment struct {
 	CommentId string
-	Post_id	  string
+	Post_id   string
 	Content   string
 	Username  string
 	Date      string
+	Likes     string
 }
 
 func GetComments(post_id string) []Comment {

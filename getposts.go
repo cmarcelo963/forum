@@ -45,7 +45,7 @@ func GetPosts(category string) []Post {
 			}
 			p.SplitCategories = append(p.SplitCategories, category)
 		}
-		p.Likes = GetLikes(p.PostId)
+		p.Likes = GetLikes(p.PostId, "post")
 		filteredPosts = append(filteredPosts, p)
 	}
 	if err != nil {

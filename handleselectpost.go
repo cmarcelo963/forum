@@ -14,7 +14,7 @@ func HandleSelectPost(w http.ResponseWriter, r *http.Request) {
 	username := r.Form["username"][0]
 	date = strings.Join(strings.Split(strings.Join(strings.Split(date, "T"), " "), "Z"), "")
 	post := GetPost(date, username)
-	likes := GetLikes(post.PostId)
+	likes := GetLikes(post.PostId, "post")
 	comments := GetComments(post.PostId)
 	UserSession.Comments = nil
 	UserSession.Likes = likes
@@ -29,19 +29,19 @@ func HandleSelectPost(w http.ResponseWriter, r *http.Request) {
 	}
 	tpl.Execute(w, UserSession)
 }
-func GetLikes(postID string) string {
+func GetLikes(id string, typeOfMessage string) string {
 	forumDatabase, err := sql.Open("sqlite3", "./forum-database.db")
 	if err != nil {
 		log.Println(err.Error())
 	}
 	defer forumDatabase.Close()
-	getLikesSQL := `SELECT (SELECT COUNT(like) from like WHERE post_id = ? and like = 1) - (SELECT COUNT(like) from like WHERE post_id = ? AND like = 0);`
+	getLikesSQL := `SELECT (SELECT COUNT(like) from like WHERE ` + typeOfMessage + `_id = ? and like = 1) - (SELECT COUNT(like) from like WHERE ` + typeOfMessage + `_id = ? AND like = 0);`
 	statement, err := forumDatabase.Prepare(getLikesSQL)
 	if err != nil {
 		log.Println(err.Error())
 	}
 	var likes string
-	err = statement.QueryRow(postID, postID).Scan(&likes)
+	err = statement.QueryRow(id, id).Scan(&likes)
 	if err != nil {
 		log.Println(err.Error())
 	}
