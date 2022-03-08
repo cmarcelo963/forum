@@ -1,12 +1,14 @@
 package forum
 
 import (
+	"log"
 	"net/http"
 	"text/template"
 	"time"
 
 	uuid "github.com/satori/go.uuid"
 )
+
 type LoginSuccess struct {
 	IsSuccessful bool
 }
@@ -34,6 +36,10 @@ func HandleLoginRequest(w http.ResponseWriter, r *http.Request) {
 			})
 			loggedIn.IsSuccessful = true
 			UserSession.User = userName
+			UserSession.CreatedPosts = GetUserPosts(userName)
+			UserSession.LikedPosts = GetUserLikedPosts(userName)
+			log.Println("liked:", UserSession.LikedPosts)
+
 		}
 		tpl.Execute(w, loggedIn)
 	}

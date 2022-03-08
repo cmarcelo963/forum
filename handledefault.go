@@ -10,6 +10,8 @@ type Auth struct {
 	Authenticated     string
 	AuthenticatedHide string
 	User              string
+	CreatedPosts      []Post
+	LikedPosts        []Post
 	Posts             []Post
 	SelectedPost      Post
 	Comments          []Comment
