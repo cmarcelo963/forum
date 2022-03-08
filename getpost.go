@@ -13,6 +13,7 @@ func GetPost(createdDate string, username string) Post {
 	}
 	defer forumDatabase.Close()
 	if createdDate == "" {
+		UserSession.Comments = nil
 		return GetLastPost(username)
 	}
 	getPostSQL := `SELECT * FROM post WHERE created_date = ? AND username = ?`

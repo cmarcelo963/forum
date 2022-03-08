@@ -56,7 +56,6 @@ func HandleNewPostRequest(w http.ResponseWriter, r *http.Request) {
 func insertNewPost(db *sql.DB, username string, title string, content string, categories string) bool {
 	insertNewPostSQL := `INSERT INTO post (username, title, created_date, content, categories) VALUES (?, ?, CURRENT_TIMESTAMP, ?, ?)`
 	statement, err := db.Prepare(insertNewPostSQL)
-
 	if err != nil {
 		log.Println(err.Error())
 		return false
