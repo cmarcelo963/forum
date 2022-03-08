@@ -13,6 +13,7 @@ type Post struct {
 	Username        string
 	Date            string
 	Categories      string
+	Likes           string
 	SplitCategories []string
 }
 
@@ -44,6 +45,7 @@ func GetPosts(category string) []Post {
 			}
 			p.SplitCategories = append(p.SplitCategories, category)
 		}
+		p.Likes = GetLikes(p.PostId)
 		filteredPosts = append(filteredPosts, p)
 	}
 	if err != nil {
