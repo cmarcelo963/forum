@@ -1,6 +1,6 @@
 package main
 
-import "git.learn.01founders.co/estlop/forum"
+import "forum"
 
 func main() {
 	forum.Forum()
