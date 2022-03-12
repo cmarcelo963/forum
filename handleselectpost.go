@@ -20,12 +20,12 @@ func HandleSelectPost(w http.ResponseWriter, r *http.Request) {
 	date = strings.Join(strings.Split(strings.Join(strings.Split(date, "T"), " "), "Z"), "")
 	post := GetPost(date, username)
 	likes := GetLikes(post.PostId, "post")
+	UserSession.Likes = ""
+	UserSession.Likes = likes
 	comments := GetComments(post.PostId)
 	UserSession.Comments = nil
-	UserSession.Likes = likes
-	for _, comment := range comments {
-		UserSession.Comments = append(UserSession.Comments, comment)
-	}
+	UserSession.Comments = append(UserSession.Comments, comments...)
+	
 	log.Println("COMMENTS:", UserSession.Comments)
 	UserSession.SelectedPost = post
 	if err != nil {

@@ -12,6 +12,8 @@ import (
 
 //Store specific information from that post that was received
 func HandleNewLikeRequest(w http.ResponseWriter, r *http.Request) {
+	
+	
 	tpl, _ := template.ParseFiles("../static/templates/index.gohtml")
 	c, err := r.Cookie("session_token")
 	if err != nil {
@@ -44,6 +46,9 @@ func HandleNewLikeRequest(w http.ResponseWriter, r *http.Request) {
 		postID := r.Form["post_id"][0]
 		log.Println("inserting like in post")
 		insertNewPostLike(forumDatabase, postID, username, r.URL.Path)
+		likes := GetLikes(postID, "post")
+		UserSession.Likes = ""
+		UserSession.Likes = likes
 	} else if len(r.Form["comment_id"]) > 0 {
 		commentID := r.Form["comment_id"][0]
 		insertNewCommentLike(forumDatabase, commentID, username, r.URL.Path)
