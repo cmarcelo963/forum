@@ -28,6 +28,7 @@ func HandleNewLikeRequest(w http.ResponseWriter, r *http.Request) {
 	sessionStatus := CheckSessionCookie(w, r,tpl)
 	if sessionStatus != "Valid cookie" {
 		log.Println("Authentication problem: ", sessionStatus)
+		tpl.Execute(w, UserSession)
 		return
 	}
 	forumDatabase, err := sql.Open("sqlite3", "./forum-database.db")
@@ -50,7 +51,7 @@ func HandleNewLikeRequest(w http.ResponseWriter, r *http.Request) {
 	
 	//tpl, _ = template.ParseFiles("../static/templates/index.gohtml")
 	// UserSession.SelectedPost = GetPost("", username)
-	// tpl.Execute(w, postSuccess)
+	tpl.Execute(w, UserSession)
 }
 
 //Adds relevant information of the new post into the database
