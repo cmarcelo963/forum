@@ -521,12 +521,12 @@
 {{end}}
 {{define "user-profile"}}
     <section class="user-profile">
-        User profile
         {{template "created-posts" .}}
     </section>
 {{end}}
 {{define "created-posts"}}
     <section class="posts {{if .CreatedPosts}}{{else}}hide{{end}}">
+        <h2>Created Posts</h2>
         {{if .CreatedPosts}}
             <div class="created-posts">
                 {{range $index, $post := .CreatedPosts}}
@@ -577,50 +577,51 @@
     </section>
 {{end}}
 {{define "liked-posts"}}
-            <div class="liked-posts">
-                {{range $index, $post := .LikedPosts}}
-                    <div class="post">
-                        <h1>{{$post.Title}}</h1>
-                        <div class="post-user">
-                            <div>
-                                <div>
-                                    <div class="post-user-icon"><div><img src="/img/staff-member.svg"></div></div>                              
-                                </div>
-                                <div class="post-creation-details">
-                                    <h2>{{$post.Username}}</h2>
-                                    <p>{{$post.Date}}</p>
-                                </div>
-                            </div>
-                            <div class="post-user-categories">
-                                {{range $category := .SplitCategories}}
-                                    <div class="post-user-category {{$category}}-colour">{{$category}}</div>
-                                {{end}}
-                            </div>                                    
+    <h2>Liked Posts</h2>
+    <div class="liked-posts">
+        {{range $index, $post := .LikedPosts}}
+            <div class="post">
+                <h1>{{$post.Title}}</h1>
+                <div class="post-user">
+                    <div>
+                        <div>
+                            <div class="post-user-icon"><div><img src="/img/staff-member.svg"></div></div>                              
                         </div>
-                        <div class="post-content">{{$post.Content}}</div>
-                        <div class="post-footer">
-                            <div class="likes">
-                                <form action="like" method="POST">
-                                    <input class="hide" type="text" name="post_id" value="{{$post.PostId}}">
-                                    <input id="liked-submit{{$index}}" class="hide" type="submit">
-                                    <label for="liked-submit{{$index}}" class="like-img"><img src="/img/like.svg"></label>
-                                </form>
-                                <div>{{$post.Likes}}</div>
-                                <form action="dislike" method="POST">
-                                    <input class="hide" type="text" name="post_id" value="{{$post.PostId}}">
-                                    <input id="disliked-submit{{$index}}" class="hide" type="submit">
-                                    <label for="disliked-submit{{$index}}" class="like-img"><img class="rotate180" src="/img/like.svg"></label>
-                                </form>
-                            </div>
-                            <form action="/select-post" method="POST">
-                                <input class="hide" type="text" name="username" value="{{$post.Username}}">
-                                <input class="hide" type="text" name="date" value="{{$post.Date}}">
-                                <input type="submit" class="more-button" value="Show More...">
-                            </form>
+                        <div class="post-creation-details">
+                            <h2>{{$post.Username}}</h2>
+                            <p>{{$post.Date}}</p>
                         </div>
                     </div>
-                {{end}}
-            </div>    
+                    <div class="post-user-categories">
+                        {{range $category := .SplitCategories}}
+                            <div class="post-user-category {{$category}}-colour">{{$category}}</div>
+                        {{end}}
+                    </div>                                    
+                </div>
+                <div class="post-content">{{$post.Content}}</div>
+                <div class="post-footer">
+                    <div class="likes">
+                        <form action="like" method="POST">
+                            <input class="hide" type="text" name="post_id" value="{{$post.PostId}}">
+                            <input id="liked-submit{{$index}}" class="hide" type="submit">
+                            <label for="liked-submit{{$index}}" class="like-img"><img src="/img/like.svg"></label>
+                        </form>
+                        <div>{{$post.Likes}}</div>
+                        <form action="dislike" method="POST">
+                            <input class="hide" type="text" name="post_id" value="{{$post.PostId}}">
+                            <input id="disliked-submit{{$index}}" class="hide" type="submit">
+                            <label for="disliked-submit{{$index}}" class="like-img"><img class="rotate180" src="/img/like.svg"></label>
+                        </form>
+                    </div>
+                    <form action="/select-post" method="POST">
+                        <input class="hide" type="text" name="username" value="{{$post.Username}}">
+                        <input class="hide" type="text" name="date" value="{{$post.Date}}">
+                        <input type="submit" class="more-button" value="Show More...">
+                    </form>
+                </div>
+            </div>
+        {{end}}
+    </div>    
 {{end}}
 <!DOCTYPE html>
 <html lang="en">

@@ -913,3 +913,11 @@ label span {
   height: 60vh;
   overflow-y: scroll;
 }
+.created-posts, .liked-posts {
+  display: flex;
+  flex-direction: column;
+  gap: 1vh 0;
+}
+.posts h2:nth-last-of-type(1) {
+  margin-top: 2vh;
+}
