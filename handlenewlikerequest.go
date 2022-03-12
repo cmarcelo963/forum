@@ -51,6 +51,11 @@ func HandleNewLikeRequest(w http.ResponseWriter, r *http.Request) {
 	
 	//tpl, _ = template.ParseFiles("../static/templates/index.gohtml")
 	// UserSession.SelectedPost = GetPost("", username)
+	UserSession.LikedPosts = nil
+	UserSession.LikedPosts = GetUserLikedPosts(username)
+	UserSession.CreatedPosts = nil
+	UserSession.CreatedPosts = GetUserPosts(username)
+	log.Println("liked: ", UserSession.LikedPosts, "!")
 	tpl.Execute(w, UserSession)
 }
 
