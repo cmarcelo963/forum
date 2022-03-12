@@ -16,30 +16,39 @@ func HandleNewLikeRequest(w http.ResponseWriter, r *http.Request) {
 	c, err := r.Cookie("session_token")
 	if err != nil {
 		if err == http.ErrNoCookie {
-			tpl.Execute(w, nil)
+			tpl.Execute(w, UserSession)
 			return
 		}
 		// For any other type of error, return a bad request status
 		w.WriteHeader(http.StatusBadRequest)
 		return
 	}
+
 	username := strings.SplitN(c.Value, "-", 2)[0]
+	sessionStatus := CheckSessionCookie(w, r,tpl)
+	if sessionStatus != "Valid cookie" {
+		log.Println("Authentication problem: ", sessionStatus)
+		return
+	}
 	forumDatabase, err := sql.Open("sqlite3", "./forum-database.db")
-	defer forumDatabase.Close()
-	r.ParseForm()
-	createLikeTable(forumDatabase)
 	if err != nil {
 		log.Println(err.Error())
 	}
+	defer forumDatabase.Close()
+	r.ParseForm()
+	createLikeTable(forumDatabase)
+	log.Println("post id exists: ", len(r.Form["post_id"]))
+	
 	if len(r.Form["post_id"]) > 0 {
 		postID := r.Form["post_id"][0]
+		log.Println("inserting like in post")
 		insertNewPostLike(forumDatabase, postID, username, r.URL.Path)
 	} else if len(r.Form["comment_id"]) > 0 {
 		commentID := r.Form["comment_id"][0]
 		insertNewCommentLike(forumDatabase, commentID, username, r.URL.Path)
 	}
 	
-	tpl, _ = template.ParseFiles("../static/templates/index.gohtml")
+	//tpl, _ = template.ParseFiles("../static/templates/index.gohtml")
 	// UserSession.SelectedPost = GetPost("", username)
 	// tpl.Execute(w, postSuccess)
 }

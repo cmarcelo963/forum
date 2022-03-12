@@ -27,23 +27,23 @@ func HandleDefault(w http.ResponseWriter, r *http.Request) {
 		fmt.Println(err)
 	}
 	sessionState := CheckSessionCookie(w, r, tpl)
-	if sessionState == "no cookie" || sessionState == "bad request" {
+	if sessionState == "No cookie" || sessionState == "Bad request" {
 		return
 	}
 	tpl.Execute(w, UserSession)
 }
-func CheckSessionCookie(w http.ResponseWriter,request *http.Request, template *template.Template) string {
+func CheckSessionCookie(w http.ResponseWriter, request *http.Request, template *template.Template) string {
 	c, err := request.Cookie("session_token")
 	if err != nil {
 		if err == http.ErrNoCookie {
 			UserSession.Authenticated = ""
 			UserSession.AuthenticatedHide = ""
 			template.Execute(w, UserSession)
-			return "no cookie"
+			return "No cookie"
 		}
 		// For any other type of error, return a bad request status
 		w.WriteHeader(http.StatusBadRequest)
-		return "bad request"
+		return "Bad request"
 	}
 	if AuthenticateSession(c.Value) {
 		UserSession.Authenticated = "authenticated"
@@ -58,3 +58,5 @@ func CheckSessionCookie(w http.ResponseWriter,request *http.Request, template *t
 		return "Invalid cookie"
 	}
 }
+
+
